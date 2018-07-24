@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kPe-zO-3Xe">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="OEF-ye-dip">
+            <objects>
+                <viewController id="kPe-zO-3Xe" customClass="LoginViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f1X-Zq-MyG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cN-ra-IBv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="250"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="R2a-PV-LaQ">
+                                        <rect key="frame" x="30" y="84" width="315" height="83.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="GreenFoot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1k-fn-nHP">
+                                                <rect key="frame" x="52" y="0.0" width="211" height="37"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                                <color key="textColor" name="gfCharcoal"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save the planet one step at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXH-yF-rUT">
+                                                <rect key="frame" x="0.0" y="62" width="315" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" name="gfCharcoal"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="P1k-fn-nHP" firstAttribute="leading" secondItem="R2a-PV-LaQ" secondAttribute="leading" constant="52" id="dwu-CM-vHA"/>
+                                            <constraint firstItem="kXH-yF-rUT" firstAttribute="leading" secondItem="R2a-PV-LaQ" secondAttribute="leading" id="y1Z-lm-ugL"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="gfGreenFootGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="R2a-PV-LaQ" secondAttribute="trailing" constant="30" id="V4l-ua-WFN"/>
+                                    <constraint firstItem="R2a-PV-LaQ" firstAttribute="centerY" secondItem="8cN-ra-IBv" secondAttribute="centerY" id="XNS-Oo-Yc2"/>
+                                    <constraint firstAttribute="height" constant="250" id="ZkP-oz-lGl"/>
+                                    <constraint firstItem="R2a-PV-LaQ" firstAttribute="centerX" secondItem="8cN-ra-IBv" secondAttribute="centerX" id="p8E-fk-dMa"/>
+                                    <constraint firstItem="R2a-PV-LaQ" firstAttribute="leading" secondItem="8cN-ra-IBv" secondAttribute="leading" constant="30" id="pMG-UO-gwk"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxX-tM-ynO">
+                                <rect key="frame" x="31" y="295" width="315" height="44"/>
+                                <color key="backgroundColor" name="gfSeaBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="uHZ-AF-2Jp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Sign Up/Login">
+                                    <color key="titleColor" name="gfOffWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="kPe-zO-3Xe" eventType="touchUpInside" id="Dud-yY-bnt"/>
+                                    <segue destination="S1Y-Dr-jJo" kind="show" identifier="toCreateUsername" id="KRz-kd-7pe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="gfOffWhite"/>
+                        <constraints>
+                            <constraint firstItem="BxX-tM-ynO" firstAttribute="top" secondItem="8cN-ra-IBv" secondAttribute="bottom" constant="25" id="Ebb-W7-65b"/>
+                            <constraint firstAttribute="trailing" secondItem="8cN-ra-IBv" secondAttribute="trailing" id="dcl-Zb-230"/>
+                            <constraint firstItem="8cN-ra-IBv" firstAttribute="top" secondItem="BH6-ye-pdF" secondAttribute="top" id="hOF-63-roY"/>
+                            <constraint firstItem="8cN-ra-IBv" firstAttribute="leading" secondItem="f1X-Zq-MyG" secondAttribute="leading" id="hXW-Yv-Seg"/>
+                            <constraint firstItem="BxX-tM-ynO" firstAttribute="leading" secondItem="BH6-ye-pdF" secondAttribute="leading" constant="31" id="nu5-cr-Fmg"/>
+                            <constraint firstItem="BH6-ye-pdF" firstAttribute="trailing" secondItem="BxX-tM-ynO" secondAttribute="trailing" constant="29" id="q6N-J2-CEy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BH6-ye-pdF"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="BxX-tM-ynO" id="dHk-Jr-Sy7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTz-Lg-lTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105" y="121"/>
+        </scene>
+        <!--Create Username View Controller-->
+        <scene sceneID="9q9-pW-nnT">
+            <objects>
+                <viewController id="S1Y-Dr-jJo" customClass="CreateUsernameViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dNa-Px-jzz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="EfV-EU-eJK">
+                                <rect key="frame" x="25" y="46" width="325" height="244.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9t-he-5IX">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" name="gfCharcoal"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a username so your friends and family can find you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5V9-Ce-83n">
+                                        <rect key="frame" x="0.0" y="68" width="325" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="gfCharcoal"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-ln-TSA">
+                                        <rect key="frame" x="0.0" y="131.5" width="325" height="44"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVw-Ml-WJ1">
+                                        <rect key="frame" x="0.0" y="200.5" width="325" height="44"/>
+                                        <color key="backgroundColor" name="gfSeaBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="NBA-Zv-RBm"/>
+                                        </constraints>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" name="gfOffWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonPressed:" destination="S1Y-Dr-jJo" eventType="touchUpInside" id="Wba-Kt-csP"/>
+                                            <action selector="nextButtonTapped:" destination="S1Y-Dr-jJo" eventType="touchUpInside" id="jiw-Xh-kk8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DVw-Ml-WJ1" firstAttribute="height" secondItem="ngI-ln-TSA" secondAttribute="height" id="8GN-fh-xTr"/>
+                                    <constraint firstItem="5V9-Ce-83n" firstAttribute="width" secondItem="EfV-EU-eJK" secondAttribute="width" id="l0p-pN-qba"/>
+                                    <constraint firstItem="ngI-ln-TSA" firstAttribute="width" secondItem="EfV-EU-eJK" secondAttribute="width" id="lrn-Ty-cwB"/>
+                                    <constraint firstItem="C9t-he-5IX" firstAttribute="width" secondItem="EfV-EU-eJK" secondAttribute="width" id="oJP-tD-xRz"/>
+                                    <constraint firstItem="DVw-Ml-WJ1" firstAttribute="width" secondItem="EfV-EU-eJK" secondAttribute="width" id="x3b-yT-XU7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="gfGreenFootGreen"/>
+                        <constraints>
+                            <constraint firstItem="OPg-7w-ovG" firstAttribute="top" secondItem="EfV-EU-eJK" secondAttribute="bottom" constant="-270.5" id="H8d-sP-Zwg"/>
+                            <constraint firstAttribute="trailing" secondItem="EfV-EU-eJK" secondAttribute="trailing" constant="25" id="dny-0X-zVo"/>
+                            <constraint firstItem="EfV-EU-eJK" firstAttribute="leading" secondItem="OPg-7w-ovG" secondAttribute="leading" constant="25" id="e9d-w1-08a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OPg-7w-ovG"/>
+                    </view>
+                    <connections>
+                        <outlet property="createUsernameTextField" destination="ngI-ln-TSA" id="zLm-xO-PJt"/>
+                        <outlet property="nextButton" destination="DVw-Ml-WJ1" id="OSP-zh-lCA"/>
+                        <outlet property="usernameTextField" destination="ngI-ln-TSA" id="MGa-OT-cgF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQt-aU-kC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975" y="121"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="gfCharcoal">
+            <color red="0.21176470588235294" green="0.27058823529411763" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gfGreenFootGreen">
+            <color red="0.54509803921568623" green="1" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gfOffWhite">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gfSeaBlue">
+            <color red="0.0039215686274509803" green="0.0039215686274509803" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
