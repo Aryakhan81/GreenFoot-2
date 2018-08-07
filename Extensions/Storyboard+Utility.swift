@@ -13,6 +13,7 @@ extension UIStoryboard {
     enum GFType: String {
         case main
         case login
+        case survey
         
         var filename: String {
             return rawValue.capitalized

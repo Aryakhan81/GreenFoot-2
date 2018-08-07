@@ -28,13 +28,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="GreenFoot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1k-fn-nHP">
                                                 <rect key="frame" x="52" y="0.0" width="211" height="37"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                                <color key="textColor" name="gfCharcoal"/>
+                                                <color key="textColor" name="gfDarkCharcoal"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save the planet one step at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXH-yF-rUT">
                                                 <rect key="frame" x="0.0" y="62" width="315" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" name="gfCharcoal"/>
+                                                <color key="textColor" name="gfDarkCharcoal"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -102,13 +102,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9t-he-5IX">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <color key="textColor" name="gfCharcoal"/>
+                                        <color key="textColor" name="gfDarkCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a username so your friends and family can find you. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5V9-Ce-83n">
                                         <rect key="frame" x="0.0" y="68" width="325" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" name="gfCharcoal"/>
+                                        <color key="textColor" name="gfDarkCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngI-ln-TSA">
@@ -127,8 +127,7 @@
                                             <color key="titleColor" name="gfOffWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="nextButtonPressed:" destination="S1Y-Dr-jJo" eventType="touchUpInside" id="Wba-Kt-csP"/>
-                                            <action selector="nextButtonTapped:" destination="S1Y-Dr-jJo" eventType="touchUpInside" id="jiw-Xh-kk8"/>
+                                            <action selector="nextButtonTapped:" destination="S1Y-Dr-jJo" eventType="touchUpInside" id="jXQ-Za-2GH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,9 +149,8 @@
                         <viewLayoutGuide key="safeArea" id="OPg-7w-ovG"/>
                     </view>
                     <connections>
-                        <outlet property="createUsernameTextField" destination="ngI-ln-TSA" id="zLm-xO-PJt"/>
-                        <outlet property="nextButton" destination="DVw-Ml-WJ1" id="OSP-zh-lCA"/>
-                        <outlet property="usernameTextField" destination="ngI-ln-TSA" id="MGa-OT-cgF"/>
+                        <outlet property="createUsernameTextField" destination="ngI-ln-TSA" id="nB3-aN-2Hr"/>
+                        <outlet property="nextButton" destination="DVw-Ml-WJ1" id="ZmN-t6-AvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQt-aU-kC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,14 +159,14 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="gfCharcoal">
-            <color red="0.21176470588235294" green="0.27058823529411763" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="gfDarkCharcoal">
+            <color red="0.12549019607843137" green="0.18823529411764706" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gfGreenFootGreen">
-            <color red="0.54509803921568623" green="1" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.56470588235294117" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gfOffWhite">
-            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gfSeaBlue">
             <color red="0.0039215686274509803" green="0.0039215686274509803" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -23,31 +23,81 @@ A user opens the app and sees a login/sign up screen. If they are a new user, th
 - UserDefaults
 - FirebaseAuth
 - FirebaseDatabase
+- AEXML
 
-# Weekly Milestones
+# Weekly and Daily Milestones
 
 ## Week 4 - Usable Build
 
-### Day 1
+### Monday
 - Install Firebase via CocoaPods
 - Start on the login screen UI
 
-### Day 2
+### Tuesday
 - Finish up the login screen UI
-- Start and finish the main UI
+- Start the main UI
 
-### Day 3
-- Start and finish Firebase w/ login
+### Wednesday
+- Finish the main UI
+- Start Firebase w/ login
 
-### Day 4
-- Start the API and JSON
+### Thursday
+- Finish Firebase w/ login
+- Start the survey UI
 
-### Day 5
-- Finish the API and JSON
-- Connect all to the UI
-​
-​## Week 5 - Finish Features
-​- Add functionality to all the buttons and finish up/add features
-​
-​## Week 6 - Polish
-- Make the UI look good and do user testing
+### Friday
+- Work on the survey UI
+- Complete variable analysis
+
+### Weekend (overtime)
+- Start on the API
+
+## Week 5 - Finish Features
+
+### Monday
+- Work on the API request, editing the UI as necesary
+
+### Tuesday
+- Work on the API request, editing the UI as necesary
+
+### Wednesday
+- Finish the API request
+- Start cleaning up the UI
+
+### Thursday
+- Work on the survey UI
+- Start on the XML processing
+
+### Friday
+- Finish all UIs
+- Finish the XML processing
+
+### Weekend (overtime)
+- Polish
+- Complete unfinished work
+
+## Week 6 - Polish and User Test
+
+### Monday
+- User test w/ friends
+- Release 0.9.0 to App Store
+
+### Tuesday
+- Improve UI
+- User test w/ friends
+- Wait for approval (if approval then release 1.0.0)
+
+### Wednesday
+- Improve UI
+- User test w/ friends
+- Wait for approval (if approval then release 1.0.0 or 1.0.1)
+
+### Thursday
+- Finish UI
+- User test w/ friends
+- Wait for approval (if approval then release 1.0.1 or 1.0.2)
+- Practice pitch
+
+### Friday
+- Practice pitch
+- Give pitch at demo day!

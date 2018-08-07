@@ -12,6 +12,11 @@ import FirebaseDatabase
 class User: Codable {
     let uid: String
     let username: String
+    var carbonFootprint: String?
+    var carbonReduced: String?
+    var stars: String?
+    var missions = [String: Double]()
+    
     private static var _current: User?
     
     static var current: User {
@@ -28,12 +33,12 @@ class User: Codable {
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: Any], let username = dict["username"] as? String else { return nil }
-        
         self.uid = snapshot.key
         self.username = username
+
     }
     
-    static func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
+    static func setCurrent(_ user: User, writeToUserDefaults: Bool = true) {
         if writeToUserDefaults {
             if let data = try? JSONEncoder().encode(user) {
                 UserDefaults.standard.set(data, forKey: "currentUser")

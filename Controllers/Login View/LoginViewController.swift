@@ -33,11 +33,11 @@ class LoginViewController: UIViewController {
 extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         if let error = error {
-            assertionFailure("Error!!! \(error.localizedDescription)")
+            print(error)
         }
         
         guard let user = user else { return }
-        let userRef = Database.database().reference().child("users").child(user.uid)
+//        let userRef = Database.database().reference().child("users").child(user.uid)
         UserService.show(forUID: user.uid) { (user) in
             if let user = user {
                 User.setCurrent(user, writeToUserDefaults: true)

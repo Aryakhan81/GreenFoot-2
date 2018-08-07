@@ -13,6 +13,13 @@ class MissionTableViewCell: UITableViewCell {
     @IBOutlet weak var missionText: UILabel!
     @IBOutlet weak var completeButton: UIButton!
     
+    var onCompleteButtonTapped: ((MissionTableViewCell) -> Void)? = nil
+    
+    weak var delegate: MissionTableViewCellDelegate?
+    
+    @IBAction func tappedComplete(_ sender: UIButton) {
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
