@@ -135,7 +135,7 @@ class LoadingScreenViewController: UIViewController {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             } catch {
-                print(error.localizedDescription)
+                return [:]
             }
         }
         return nil
@@ -148,7 +148,6 @@ class LoadingScreenViewController: UIViewController {
         let apiURL = URL(string: apiToContact)!
         Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).validate().response { (response) in
             guard let xml = response.data else { return }
-            print(SWXMLHash.parse(xml))
             var options = AEXMLOptions()
             options.parserSettings.shouldProcessNamespaces = false
             options.parserSettings.shouldReportNamespacePrefixes = false
@@ -160,8 +159,8 @@ class LoadingScreenViewController: UIViewController {
                 let ref = Database.database().reference().child("users").child(self.user!.uid)
                 let footprintRef = ref.child("carbonFootprint")
                 footprintRef.setValue(Double(value)!, withCompletionBlock: { (error, reference) in
-                    if let error = error{
-                        print(error.localizedDescription)
+                    if let error = error {
+                        self.loading.text! = error.localizedDescription
                     }
                 })
                 
@@ -171,19 +170,19 @@ class LoadingScreenViewController: UIViewController {
                 let missionRef = ref.child("missions")
                 missionRef.setValue(missions, withCompletionBlock: { (error, mr) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        self.loading.text! = error.localizedDescription
                     }
                     
                     let reducedRef = ref.child("carbonReduced")
                     reducedRef.setValue(0, withCompletionBlock: { (error, rr) in
                         if let error = error {
-                            print(error.localizedDescription)
+                            self.loading.text! = error.localizedDescription
                         }
                         
                         let starsRef = ref.child("stars")
                         starsRef.setValue(0, withCompletionBlock: { (error, sr) in
                             if let error = error {
-                                print(error.localizedDescription)
+                                self.loading.text! = error.localizedDescription
                             }
                             
                             let initialViewController = UIStoryboard.initialViewController(for: .main)
@@ -194,7 +193,7 @@ class LoadingScreenViewController: UIViewController {
                 })
                
             } catch (let error){
-                print("Went to catch \(error.localizedDescription)")
+                self.loading.text! = error.localizedDescription
             }
 
         }

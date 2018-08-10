@@ -23,6 +23,10 @@ class SeventhSurveyViewController: UIViewController {
         super.viewDidLoad()
         
         //Dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         mpgVehicle3TextField.doneButtonPressed = {
             if self.mpgVehicle3TextField.isFirstResponder {
                 self.mpgVehicle3TextField.resignFirstResponder()
@@ -59,14 +63,19 @@ class SeventhSurveyViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        info.input_footprint_transportation_mpg3 = Int(mpgVehicle3TextField.text!)
-        info.input_footprint_transportation_miles4 = Int(milesVehicle4TextField.text!)
-        info.input_footprint_transportation_mpg4 = Int(mpgVehicle4TextField.text!)
-        info.input_footprint_transportation_airtotal = Int(planeTravelTextField.text!)
-        info.input_footprint_transportation_publictrans = Int(publicTransportTextField.text!)
-        
-        self.performSegue(withIdentifier: "toLoading", sender: self)
+        if mpgVehicle3TextField.text!.isEmpty || milesVehicle4TextField.text!.isEmpty || mpgVehicle4TextField.text!.isEmpty || planeTravelTextField.text!.isEmpty || publicTransportTextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            info.input_footprint_transportation_mpg3 = Int(mpgVehicle3TextField.text!)
+            info.input_footprint_transportation_miles4 = Int(milesVehicle4TextField.text!)
+            info.input_footprint_transportation_mpg4 = Int(mpgVehicle4TextField.text!)
+            info.input_footprint_transportation_airtotal = Int(planeTravelTextField.text!)
+            info.input_footprint_transportation_publictrans = Int(publicTransportTextField.text!)
+            
+            self.performSegue(withIdentifier: "toLoading", sender: self)
+        }
+
     }
     
-
 }

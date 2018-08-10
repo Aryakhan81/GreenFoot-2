@@ -23,6 +23,10 @@ class FourthSurveyViewController: UIViewController {
         super.viewDidLoad()
         
         //Dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         houseHeatingTextField.doneButtonPressed = {
             if self.houseHeatingTextField.isFirstResponder {
                 self.houseHeatingTextField.resignFirstResponder()
@@ -59,16 +63,19 @@ class FourthSurveyViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        guard !houseHeatingTextField.isEmpty(), !houseCoolingTextField.isEmpty(), !furnitureAppliancesTextField.isEmpty(), !officeSuppliesTextField.isEmpty(), !clothingTextField.isEmpty() else { return }
+        if houseHeatingTextField.text!.isEmpty || houseCoolingTextField.text!.isEmpty || furnitureAppliancesTextField.text!.isEmpty || officeSuppliesTextField.text!.isEmpty || clothingTextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            info.input_footprint_housing_hdd = Int(houseHeatingTextField.text!)
+            info.input_footprint_housing_cdd = Int(houseCoolingTextField.text!)
+            info.input_footprint_shopping_goods_default_furnitureappliances = Int(furnitureAppliancesTextField.text!)
+            info.input_footprint_shopping_goods_default_other_office = Int(officeSuppliesTextField.text!)
+            info.input_footprint_shopping_goods_default_clothing = Int(clothingTextField.text!)
+            
+            self.performSegue(withIdentifier: "to5", sender: self)
+        }
 
-        
-        info.input_footprint_housing_hdd = Int(houseHeatingTextField.text!)
-        info.input_footprint_housing_cdd = Int(houseCoolingTextField.text!)
-        info.input_footprint_shopping_goods_default_furnitureappliances = Int(furnitureAppliancesTextField.text!)
-        info.input_footprint_shopping_goods_default_other_office = Int(officeSuppliesTextField.text!)
-        info.input_footprint_shopping_goods_default_clothing = Int(clothingTextField.text!)
-        
-        self.performSegue(withIdentifier: "to5", sender: self)
     }
     
     

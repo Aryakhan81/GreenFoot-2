@@ -66,12 +66,12 @@ class ProfileViewController: UIViewController {
             self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 22)
             self.starDescription.font = UIFont.boldSystemFont(ofSize: 22)
         } else {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 22)
-            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 22)
-            self.starAmount.font = UIFont.systemFont(ofSize: 22)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 22)
-            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 22)
-            self.starDescription.font = UIFont.boldSystemFont(ofSize: 22)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 20)
+            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 20)
+            self.starAmount.font = UIFont.systemFont(ofSize: 20)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.starDescription.font = UIFont.boldSystemFont(ofSize: 20)
 
         }
         

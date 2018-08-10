@@ -46,12 +46,12 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 ref.child("carbonReduced").setValue(reduced + self.missionsList[sender.tag].value, withCompletionBlock: { (error, rr) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        self.usernameLabel.text! = error.localizedDescription
                     }
                     
                     ref.child("stars").setValue(stars + Int(self.missionsList[sender.tag].value * 100), withCompletionBlock: { (error, sr) in
                         if let error = error {
-                            print(error.localizedDescription)
+                            self.usernameLabel.text! = error.localizedDescription
                         }
                         
                         self.missionsList.remove(at: sender.tag)
@@ -59,12 +59,12 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
                         
                         ref.child("missions").setValue(self.toDict(self.missionsList), withCompletionBlock: { (error, mr) in
                             if let error = error {
-                                print(error.localizedDescription)
+                                self.usernameLabel.text! = error.localizedDescription
                             }
                             
                             ref.child("carbonFootprint").setValue(newFootprint, withCompletionBlock: { (error, cr) in
                                 if let error = error {
-                                    print(error.localizedDescription)
+                                    self.usernameLabel.text! = error.localizedDescription
                                 }
                                 DispatchQueue.main.async {
                                     self.carbonFootprintLabel.text = "\(newFootprint.round(to: 2)) tons/year"
@@ -135,9 +135,9 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
             self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 24)
             self.missionsDescription.font = UIFont.systemFont(ofSize: 21)
         } else {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 22)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 22)
-            self.missionsDescription.font = UIFont.systemFont(ofSize: 20)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 21)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 21)
+            self.missionsDescription.font = UIFont.systemFont(ofSize: 19.5)
         }
         
         //...and set the labels to its values!
@@ -149,21 +149,30 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
         let ref = Database.database().reference().child("users").child(user.uid)
         ref.observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! [String: Any]
-            self.carbonFootprintLabel.text = "\((value["carbonFootprint"] as! Double).round(to: 2)) tons/year"
-            if updateLists {
-                let missions: [String: Double]? = value["missions"] as? [String: Double]
-                if missions != nil {
-                    self.missions = missions!
-                } else {
-                    self.missions = [:]
+            if let footprint = value["carbonFootprint"] as? Double {
+                self.carbonFootprintLabel.text = "\(footprint.round(to: 2)) tons/year"
+                if updateLists {
+                    let missions: [String: Double]? = value["missions"] as? [String: Double]
+                    if missions != nil {
+                        self.missions = missions!
+                    } else {
+                        self.missions = [:]
+                    }
+                    self.missionsList = Array(self.missions)
                 }
-                self.missionsList = Array(self.missions)
+            } else {
+                let alert = UIAlertController(title: "Incomplete Survey", message: "We noticed that you closed the app before completing the survey.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                let initialViewController = UIStoryboard.initialViewController(for: .survey)
+                self.view.window?.rootViewController = initialViewController
+                self.view.window?.makeKeyAndVisible()
             }
-
         }
     }
     
-    func toDict<K,V>(_ tuples: [(K, V)]) -> [K: V]{
+    func toDict<K, V>(_ tuples: [(K, V)]) -> [K: V]{
         var dict:[K: V] = [K: V]()
         tuples.forEach { dict[$0.0] = $0.1 }
         return dict

@@ -51,7 +51,6 @@ class CreditsScreenViewController: UITableViewController {
             urlToContact = "https://www.freeprivacypolicy.com/privacy/view/deb4670728e0e6f278e50ae3899526bf"
             UIApplication.shared.openURL(URL(string: urlToContact)!)
         default:
-            print("Invalid cell!")
             return
         }
     }

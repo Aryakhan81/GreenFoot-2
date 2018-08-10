@@ -22,6 +22,10 @@ class FifthSurveyViewController: UIViewController {
         super.viewDidLoad()
         
         //Dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
         entertainmentTextField.doneButtonPressed = {
             if self.entertainmentTextField.isFirstResponder {
                 self.entertainmentTextField.resignFirstResponder()
@@ -58,16 +62,20 @@ class FifthSurveyViewController: UIViewController {
     }
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
-        guard !entertainmentTextField.isEmpty(), !entertainmentTextField.isEmpty(), !medicalBillTextField.isEmpty(), !autoRepairTextField.isEmpty(), !servicesTextField.isEmpty() else { return }
-        
-        info.input_footprint_shopping_goods_default_other_entertainment = Int(entertainmentTextField.text!)
-        info.input_footprint_shopping_goods_default_other_personalcare = Int(entertainmentTextField.text!)
-        info.input_footprint_shopping_goods_default_other_medical = Int(medicalBillTextField.text!)
-        info.input_footprint_shopping_goods_default_other_autoparts = Int(autoRepairTextField.text!)
-        info.input_footprint_shopping_services_total = Int(servicesTextField.text!)
-        info.input_footprint_shopping_goods_total = info.input_footprint_shopping_goods_default_furnitureappliances! + info.input_footprint_shopping_goods_default_clothing! + info.input_footprint_shopping_goods_default_other_entertainment! + info.input_footprint_shopping_goods_default_other_office! + info.input_footprint_shopping_goods_default_other_personalcare! + info.input_footprint_shopping_goods_default_other_autoparts! + info.input_footprint_shopping_goods_default_other_medical!
-        
-        self.performSegue(withIdentifier: "to6", sender: self)
+        if entertainmentTextField.text!.isEmpty || personalCareTextField.text!.isEmpty || medicalBillTextField.text!.isEmpty || autoRepairTextField.text!.isEmpty || servicesTextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            info.input_footprint_shopping_goods_default_other_entertainment = Int(entertainmentTextField.text!)
+            info.input_footprint_shopping_goods_default_other_personalcare = Int(personalCareTextField.text!)
+            info.input_footprint_shopping_goods_default_other_medical = Int(medicalBillTextField.text!)
+            info.input_footprint_shopping_goods_default_other_autoparts = Int(autoRepairTextField.text!)
+            info.input_footprint_shopping_services_total = Int(servicesTextField.text!)
+            info.input_footprint_shopping_goods_total = info.input_footprint_shopping_goods_default_furnitureappliances! + info.input_footprint_shopping_goods_default_clothing! + info.input_footprint_shopping_goods_default_other_entertainment! + info.input_footprint_shopping_goods_default_other_office! + info.input_footprint_shopping_goods_default_other_personalcare! + info.input_footprint_shopping_goods_default_other_autoparts! + info.input_footprint_shopping_goods_default_other_medical!
+            
+            self.performSegue(withIdentifier: "to6", sender: self)
+        }
+
     }
     
 
