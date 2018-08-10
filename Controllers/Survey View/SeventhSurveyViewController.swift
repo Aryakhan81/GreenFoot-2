@@ -10,11 +10,11 @@ import UIKit
 
 class SeventhSurveyViewController: UIViewController {
     //@IBOutlets
-    @IBOutlet weak var mpgVehicle3TextField: InputNumberTextField!
-    @IBOutlet weak var milesVehicle4TextField: InputNumberTextField!
-    @IBOutlet weak var mpgVehicle4TextField: InputNumberTextField!
-    @IBOutlet weak var planeTravelTextField: InputNumberTextField!
-    @IBOutlet weak var publicTransportTextField: InputNumberTextField!
+    @IBOutlet weak var mpgVehicle3TextField: UITextField!
+    @IBOutlet weak var milesVehicle4TextField: UITextField!
+    @IBOutlet weak var mpgVehicle4TextField: UITextField!
+    @IBOutlet weak var planeTravelTextField: UITextField!
+    @IBOutlet weak var publicTransportTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
     
@@ -26,33 +26,7 @@ class SeventhSurveyViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        mpgVehicle3TextField.doneButtonPressed = {
-            if self.mpgVehicle3TextField.isFirstResponder {
-                self.mpgVehicle3TextField.resignFirstResponder()
-            }
-        }
-        milesVehicle4TextField.doneButtonPressed = {
-            if self.milesVehicle4TextField.isFirstResponder {
-                self.milesVehicle4TextField.resignFirstResponder()
-            }
-        }
-        mpgVehicle4TextField.doneButtonPressed = {
-            if self.mpgVehicle4TextField.isFirstResponder {
-                self.mpgVehicle4TextField.resignFirstResponder()
-            }
-        }
-        planeTravelTextField.doneButtonPressed = {
-            if self.planeTravelTextField.isFirstResponder {
-                self.planeTravelTextField.resignFirstResponder()
-            }
-        }
-        publicTransportTextField.doneButtonPressed = {
-            if self.publicTransportTextField.isFirstResponder {
-                self.publicTransportTextField.resignFirstResponder()
-            }
-        }
-        
+
         //Style
         mpgVehicle3TextField.layer.cornerRadius = 8
         milesVehicle4TextField.layer.cornerRadius = 8

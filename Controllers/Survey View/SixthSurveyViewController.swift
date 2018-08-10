@@ -11,11 +11,11 @@ import UIKit
 class SixthSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var milesVehicle1TextField: InputNumberTextField!
-    @IBOutlet weak var mpgVehicle1TextField: InputNumberTextField!
-    @IBOutlet weak var milesVehicle2TextField: InputNumberTextField!
-    @IBOutlet weak var mpgVehicle2TextField: InputNumberTextField!
-    @IBOutlet weak var milesVehicle3TextField: InputNumberTextField!
+    @IBOutlet weak var milesVehicle1TextField: UITextField!
+    @IBOutlet weak var mpgVehicle1TextField: UITextField!
+    @IBOutlet weak var milesVehicle2TextField: UITextField!
+    @IBOutlet weak var mpgVehicle2TextField: UITextField!
+    @IBOutlet weak var milesVehicle3TextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
     
@@ -26,32 +26,6 @@ class SixthSurveyViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        milesVehicle1TextField.doneButtonPressed = {
-            if self.milesVehicle1TextField.isFirstResponder {
-                self.milesVehicle1TextField.resignFirstResponder()
-            }
-        }
-        mpgVehicle1TextField.doneButtonPressed = {
-            if self.mpgVehicle1TextField.isFirstResponder {
-                self.mpgVehicle1TextField.resignFirstResponder()
-            }
-        }
-        milesVehicle2TextField.doneButtonPressed = {
-            if self.milesVehicle2TextField.isFirstResponder {
-                self.milesVehicle2TextField.resignFirstResponder()
-            }
-        }
-        mpgVehicle2TextField.doneButtonPressed = {
-            if self.mpgVehicle2TextField.isFirstResponder {
-                self.mpgVehicle2TextField.resignFirstResponder()
-            }
-        }
-        milesVehicle3TextField.doneButtonPressed = {
-            if self.milesVehicle3TextField.isFirstResponder {
-                self.milesVehicle3TextField.resignFirstResponder()
-            }
-        }
         
         //Style
         milesVehicle1TextField.layer.cornerRadius = 8

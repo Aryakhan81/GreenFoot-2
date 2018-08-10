@@ -11,11 +11,11 @@ import UIKit
 class FifthSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var entertainmentTextField: InputNumberTextField!
-    @IBOutlet weak var personalCareTextField: InputNumberTextField!
-    @IBOutlet weak var medicalBillTextField: InputNumberTextField!
-    @IBOutlet weak var autoRepairTextField: InputNumberTextField!
-    @IBOutlet weak var servicesTextField: InputNumberTextField!
+    @IBOutlet weak var entertainmentTextField: UITextField!
+    @IBOutlet weak var personalCareTextField: UITextField!
+    @IBOutlet weak var medicalBillTextField: UITextField!
+    @IBOutlet weak var autoRepairTextField: UITextField!
+    @IBOutlet weak var servicesTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
 
     override func viewDidLoad() {
@@ -25,32 +25,6 @@ class FifthSurveyViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        entertainmentTextField.doneButtonPressed = {
-            if self.entertainmentTextField.isFirstResponder {
-                self.entertainmentTextField.resignFirstResponder()
-            }
-        }
-        personalCareTextField.doneButtonPressed = {
-            if self.personalCareTextField.isFirstResponder {
-                self.personalCareTextField.resignFirstResponder()
-            }
-        }
-        medicalBillTextField.doneButtonPressed = {
-            if self.medicalBillTextField.isFirstResponder {
-                self.medicalBillTextField.resignFirstResponder()
-            }
-        }
-        autoRepairTextField.doneButtonPressed = {
-            if self.autoRepairTextField.isFirstResponder {
-                self.autoRepairTextField.resignFirstResponder()
-            }
-        }
-        servicesTextField.doneButtonPressed = {
-            if self.servicesTextField.isFirstResponder {
-                self.servicesTextField.resignFirstResponder()
-            }
-        }
         
         //Style
         entertainmentTextField.layer.cornerRadius = 8

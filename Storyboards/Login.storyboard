@@ -54,13 +54,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxX-tM-ynO">
-                                <rect key="frame" x="31" y="295" width="315" height="44"/>
+                                <rect key="frame" x="30" y="295" width="315" height="44"/>
                                 <color key="backgroundColor" name="gfSeaBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="uHZ-AF-2Jp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Sign Up/Login">
+                                <state key="normal" title="Sign Up">
                                     <color key="titleColor" name="gfOffWhite"/>
                                 </state>
                                 <connections>
@@ -68,19 +68,38 @@
                                     <segue destination="S1Y-Dr-jJo" kind="show" identifier="toCreateUsername" id="KRz-kd-7pe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkb-Bd-lmC">
+                                <rect key="frame" x="30" y="364" width="315" height="44"/>
+                                <color key="backgroundColor" name="gfSeaBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ai0-9G-aii"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" name="gfOffWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actualLoginButtonPressed:" destination="kPe-zO-3Xe" eventType="touchUpInside" id="c08-5O-DeI"/>
+                                    <action selector="loginButtonPressed:" destination="kPe-zO-3Xe" eventType="touchUpInside" id="s7m-cu-Kk8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="gfOffWhite"/>
                         <constraints>
+                            <constraint firstItem="wkb-Bd-lmC" firstAttribute="top" secondItem="BxX-tM-ynO" secondAttribute="bottom" constant="25" id="12L-AO-5MO"/>
                             <constraint firstItem="BxX-tM-ynO" firstAttribute="top" secondItem="8cN-ra-IBv" secondAttribute="bottom" constant="25" id="Ebb-W7-65b"/>
+                            <constraint firstItem="wkb-Bd-lmC" firstAttribute="leading" secondItem="BH6-ye-pdF" secondAttribute="leading" constant="30" id="QmN-b3-5mm"/>
                             <constraint firstAttribute="trailing" secondItem="8cN-ra-IBv" secondAttribute="trailing" id="dcl-Zb-230"/>
                             <constraint firstItem="8cN-ra-IBv" firstAttribute="top" secondItem="BH6-ye-pdF" secondAttribute="top" id="hOF-63-roY"/>
                             <constraint firstItem="8cN-ra-IBv" firstAttribute="leading" secondItem="f1X-Zq-MyG" secondAttribute="leading" id="hXW-Yv-Seg"/>
-                            <constraint firstItem="BxX-tM-ynO" firstAttribute="leading" secondItem="BH6-ye-pdF" secondAttribute="leading" constant="31" id="nu5-cr-Fmg"/>
-                            <constraint firstItem="BH6-ye-pdF" firstAttribute="trailing" secondItem="BxX-tM-ynO" secondAttribute="trailing" constant="29" id="q6N-J2-CEy"/>
+                            <constraint firstItem="BH6-ye-pdF" firstAttribute="trailing" secondItem="wkb-Bd-lmC" secondAttribute="trailing" constant="30" id="ika-nU-8zK"/>
+                            <constraint firstItem="BxX-tM-ynO" firstAttribute="leading" secondItem="BH6-ye-pdF" secondAttribute="leading" constant="30" id="nu5-cr-Fmg"/>
+                            <constraint firstItem="BH6-ye-pdF" firstAttribute="trailing" secondItem="BxX-tM-ynO" secondAttribute="trailing" constant="30" id="q6N-J2-CEy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BH6-ye-pdF"/>
                     </view>
                     <connections>
+                        <outlet property="actualLoginButton" destination="wkb-Bd-lmC" id="jgw-CU-vmx"/>
                         <outlet property="loginButton" destination="BxX-tM-ynO" id="dHk-Jr-Sy7"/>
                     </connections>
                 </viewController>
@@ -168,8 +187,14 @@
         <namedColor name="gfOffWhite">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="gfOffWhite">
+            <color red="0.95294117649999999" green="0.95294117649999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="gfSeaBlue">
             <color red="0.0039215686274509803" green="0.0039215686274509803" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gfSeaBlue">
+            <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

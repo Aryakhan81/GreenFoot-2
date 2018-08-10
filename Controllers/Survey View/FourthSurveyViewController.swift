@@ -11,11 +11,11 @@ import UIKit
 class FourthSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var houseHeatingTextField: InputNumberTextField!
-    @IBOutlet weak var houseCoolingTextField: InputNumberTextField!
-    @IBOutlet weak var furnitureAppliancesTextField: InputNumberTextField!
-    @IBOutlet weak var officeSuppliesTextField: InputNumberTextField!
-    @IBOutlet weak var clothingTextField: InputNumberTextField!
+    @IBOutlet weak var houseHeatingTextField: UITextField!
+    @IBOutlet weak var houseCoolingTextField: UITextField!
+    @IBOutlet weak var furnitureAppliancesTextField: UITextField!
+    @IBOutlet weak var officeSuppliesTextField: UITextField!
+    @IBOutlet weak var clothingTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
 
@@ -26,32 +26,6 @@ class FourthSurveyViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        houseHeatingTextField.doneButtonPressed = {
-            if self.houseHeatingTextField.isFirstResponder {
-                self.houseHeatingTextField.resignFirstResponder()
-            }
-        }
-        houseCoolingTextField.doneButtonPressed = {
-            if self.houseCoolingTextField.isFirstResponder {
-                self.houseCoolingTextField.resignFirstResponder()
-            }
-        }
-        furnitureAppliancesTextField.doneButtonPressed = {
-            if self.furnitureAppliancesTextField.isFirstResponder {
-                self.furnitureAppliancesTextField.resignFirstResponder()
-            }
-        }
-        officeSuppliesTextField.doneButtonPressed = {
-            if self.officeSuppliesTextField.isFirstResponder {
-                self.officeSuppliesTextField.resignFirstResponder()
-            }
-        }
-        clothingTextField.doneButtonPressed = {
-            if self.clothingTextField.isFirstResponder {
-                self.clothingTextField.resignFirstResponder()
-            }
-        }
         
         //Style
         houseHeatingTextField.layer.cornerRadius = 8

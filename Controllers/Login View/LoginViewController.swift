@@ -16,18 +16,22 @@ typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var actualLoginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 8
+        actualLoginButton.layer.cornerRadius = 8
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        guard let authUI = FUIAuth.defaultAuthUI() else { return }
-        authUI.delegate = self
-        let authViewController = authUI.authViewController()
-        present(authViewController, animated: true)
+        presentAuth()
     }
+    
+    @IBAction func actualLoginButtonPressed(_ sender: UIButton) {
+        presentAuth()
+    }
+    
 }
 
 extension LoginViewController: FUIAuthDelegate {
@@ -47,6 +51,13 @@ extension LoginViewController: FUIAuthDelegate {
                 self.performSegue(withIdentifier: "toCreateUsername", sender: self)
             }
         }
+    }
+    
+    func presentAuth() {
+        guard let authUI = FUIAuth.defaultAuthUI() else { return }
+        authUI.delegate = self
+        let authViewController = authUI.authViewController()
+        present(authViewController, animated: true)
     }
 }
 

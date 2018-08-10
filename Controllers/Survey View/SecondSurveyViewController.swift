@@ -11,11 +11,11 @@ import UIKit
 class SecondSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var meatFishEggsTextField: InputNumberTextField!
-    @IBOutlet weak var dairyTextField: InputNumberTextField!
-    @IBOutlet weak var fruitsVeggiesTextField: InputNumberTextField!
-    @IBOutlet weak var cerealsTextField: InputNumberTextField!
-    @IBOutlet weak var otherFoodsTextField: InputNumberTextField!
+    @IBOutlet weak var meatFishEggsTextField: UITextField!
+    @IBOutlet weak var dairyTextField: UITextField!
+    @IBOutlet weak var fruitsVeggiesTextField: UITextField!
+    @IBOutlet weak var cerealsTextField: UITextField!
+    @IBOutlet weak var otherFoodsTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
     
@@ -26,32 +26,6 @@ class SecondSurveyViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        meatFishEggsTextField.doneButtonPressed = {
-            if self.meatFishEggsTextField.isFirstResponder {
-                self.meatFishEggsTextField.resignFirstResponder()
-            }
-        }
-        dairyTextField.doneButtonPressed = {
-            if self.dairyTextField.isFirstResponder {
-                self.dairyTextField.resignFirstResponder()
-            }
-        }
-        fruitsVeggiesTextField.doneButtonPressed = {
-            if self.fruitsVeggiesTextField.isFirstResponder {
-                self.fruitsVeggiesTextField.resignFirstResponder()
-            }
-        }
-        cerealsTextField.doneButtonPressed = {
-            if self.cerealsTextField.isFirstResponder {
-                self.cerealsTextField.resignFirstResponder()
-            }
-        }
-        otherFoodsTextField.doneButtonPressed = {
-            if self.otherFoodsTextField.isFirstResponder {
-                self.otherFoodsTextField.resignFirstResponder()
-            }
-        }
         
         //Style
         meatFishEggsTextField.layer.cornerRadius = 8

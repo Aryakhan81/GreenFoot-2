@@ -10,11 +10,11 @@ import UIKit
 
 class ThirdSurveyViewController: UIViewController {
     //@IBOutlets
-    @IBOutlet weak var electricalBillTextField: InputNumberTextField!
-    @IBOutlet weak var naturalGasBillTextField: InputNumberTextField!
-    @IBOutlet weak var heatingOilBillTextField: InputNumberTextField!
-    @IBOutlet weak var waterSewageBillTextField: InputNumberTextField!
-    @IBOutlet weak var houseSizeTextField: InputNumberTextField!
+    @IBOutlet weak var electricalBillTextField: UITextField!
+    @IBOutlet weak var naturalGasBillTextField: UITextField!
+    @IBOutlet weak var heatingOilBillTextField: UITextField!
+    @IBOutlet weak var waterSewageBillTextField: UITextField!
+    @IBOutlet weak var houseSizeTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
 
@@ -25,32 +25,6 @@ class ThirdSurveyViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        electricalBillTextField.doneButtonPressed = {
-            if self.electricalBillTextField.isFirstResponder {
-                self.electricalBillTextField.resignFirstResponder()
-            }
-        }
-        naturalGasBillTextField.doneButtonPressed = {
-            if self.naturalGasBillTextField.isFirstResponder {
-                self.naturalGasBillTextField.resignFirstResponder()
-            }
-        }
-        heatingOilBillTextField.doneButtonPressed = {
-            if self.heatingOilBillTextField.isFirstResponder {
-                self.heatingOilBillTextField.resignFirstResponder()
-            }
-        }
-        waterSewageBillTextField.doneButtonPressed = {
-            if self.waterSewageBillTextField.isFirstResponder {
-                self.waterSewageBillTextField.resignFirstResponder()
-            }
-        }
-        houseSizeTextField.doneButtonPressed = {
-            if self.houseSizeTextField.isFirstResponder {
-                self.houseSizeTextField.resignFirstResponder()
-            }
-        }
 
         //Style
         electricalBillTextField.layer.cornerRadius = 8

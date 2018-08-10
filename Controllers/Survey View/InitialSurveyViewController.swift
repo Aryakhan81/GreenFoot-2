@@ -14,10 +14,10 @@ class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     
     //@IBOutlets
-    @IBOutlet weak var zipcodeTextField: InputNumberTextField!
-    @IBOutlet weak var housePopTextField: InputNumberTextField!
-    @IBOutlet weak var houseAdultsTextField: InputNumberTextField!
-    @IBOutlet weak var houseChildrenTextField: InputNumberTextField!
+    @IBOutlet weak var zipcodeTextField: UITextField!
+    @IBOutlet weak var housePopTextField: UITextField!
+    @IBOutlet weak var houseAdultsTextField: UITextField!
+    @IBOutlet weak var houseChildrenTextField: UITextField!
     @IBOutlet weak var incomePickerView: UIPickerView!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -32,27 +32,6 @@ class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPic
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
-        
-        zipcodeTextField.doneButtonPressed = {
-            if self.zipcodeTextField.isFirstResponder {
-                self.zipcodeTextField.resignFirstResponder()
-            }
-        }
-        housePopTextField.doneButtonPressed = {
-            if self.housePopTextField.isFirstResponder {
-                self.housePopTextField.resignFirstResponder()
-            }
-        }
-        houseAdultsTextField.doneButtonPressed = {
-            if self.houseAdultsTextField.isFirstResponder {
-                self.houseAdultsTextField.resignFirstResponder()
-            }
-        }
-        houseChildrenTextField.doneButtonPressed = {
-            if self.houseChildrenTextField.isFirstResponder {
-                self.houseChildrenTextField.resignFirstResponder()
-            }
-        }
         
         //Style
         zipcodeTextField.layer.cornerRadius = 8
