@@ -40,6 +40,12 @@ class FifthSurveyViewController: UIViewController {
             AlertPresenterService.alertEmptyField(self)
             return
         } else {
+            entertainmentTextField.checkLegnth(self, to: 7)
+            personalCareTextField.checkLegnth(self, to: 7)
+            medicalBillTextField.checkLegnth(self, to: 7)
+            autoRepairTextField.checkLegnth(self, to: 7)
+            servicesTextField.checkLegnth(self, to: 7)
+            
             info.input_footprint_shopping_goods_default_other_entertainment = Int(entertainmentTextField.text!)
             info.input_footprint_shopping_goods_default_other_personalcare = Int(personalCareTextField.text!)
             info.input_footprint_shopping_goods_default_other_medical = Int(medicalBillTextField.text!)

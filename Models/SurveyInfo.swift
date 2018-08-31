@@ -97,7 +97,7 @@ struct SurveyInfo {
         self.input_footprint_transportation_mpg4 = nil //Done
         self.input_footprint_transportation_airtotal = nil //Done
         self.input_footprint_transportation_publictrans = nil //Done
-        self.internal_state_abbreviation = nil
+        self.internal_state_abbreviation = nil //Done by using external API
         self.input_footprint_housing_electricity_dollars = nil //Done
         self.input_footprint_housing_naturalgas_dollars = nil //Done
         self.input_footprint_housing_heatingoil_dollars = nil //Done

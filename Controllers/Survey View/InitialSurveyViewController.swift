@@ -8,9 +8,12 @@
 
 import UIKit
 
-var info = SurveyInfo()
-
 class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    //Vars storing info from basic survey
+    var incomeRow: Int? = nil
+    var zipCode: String? = nil
+    var housePop: String? = nil
     
     
     //@IBOutlets
@@ -27,6 +30,24 @@ class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         incomePickerView.delegate = self
+        incomePickerView.dataSource = self
+        
+        //Set text field values to those from basic survey, if completed
+        if let zipCode = self.zipCode {
+            self.zipcodeTextField.text = zipCode
+            
+            if let housePop = self.housePop {
+                self.housePopTextField.text = housePop
+            }
+            
+            if let incomeRow = self.incomeRow {
+                if incomeRow != 0 {
+                    self.incomePickerView.selectRow(incomeRow - 1, inComponent: 0, animated: false)
+                } else {
+                    self.incomePickerView.selectRow(0, inComponent: 0, animated: false)
+                }
+            }
+        }
         
         //Dismiss keyboard
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -62,6 +83,9 @@ class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPic
             return
         } else {
             if zipcodeTextField.text!.count == 5 {
+                housePopTextField.checkLegnth(self, to: 5)
+                houseAdultsTextField.checkLegnth(self, to: 5)
+                houseChildrenTextField.checkLegnth(self, to: 5)
                 
                 info.input_location = Int(zipcodeTextField.text!)
                 info.input_size = Int(housePopTextField.text!)

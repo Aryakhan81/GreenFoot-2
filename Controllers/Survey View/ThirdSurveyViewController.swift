@@ -41,6 +41,12 @@ class ThirdSurveyViewController: UIViewController {
             return
         } else {
             
+            electricalBillTextField.checkLegnth(self, to: 7)
+            naturalGasBillTextField.checkLegnth(self, to: 7)
+            heatingOilBillTextField.checkLegnth(self, to: 7)
+            waterSewageBillTextField.checkLegnth(self, to: 7)
+            houseSizeTextField.checkLegnth(self, to: 7)
+            
             info.input_footprint_housing_electricity_dollars = Int(electricalBillTextField.text!)
             info.input_footprint_housing_naturalgas_dollars = Int(naturalGasBillTextField.text!)
             info.input_footprint_housing_heatingoil_dollars = Int(heatingOilBillTextField.text!)

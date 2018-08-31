@@ -41,6 +41,12 @@ class SeventhSurveyViewController: UIViewController {
             AlertPresenterService.alertEmptyField(self)
             return
         } else {
+            mpgVehicle3TextField.checkLegnth(self, to: 4)
+            milesVehicle4TextField.checkLegnth(self, to: 9)
+            mpgVehicle4TextField.checkLegnth(self, to: 4)
+            planeTravelTextField.checkLegnth(self, to: 10)
+            publicTransportTextField.checkLegnth(self, to: 8)
+            
             info.input_footprint_transportation_mpg3 = Int(mpgVehicle3TextField.text!)
             info.input_footprint_transportation_miles4 = Int(milesVehicle4TextField.text!)
             info.input_footprint_transportation_mpg4 = Int(mpgVehicle4TextField.text!)

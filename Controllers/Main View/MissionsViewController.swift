@@ -123,17 +123,17 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
         missionsTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         if UIDevice.modelName == "iPhone 5" || UIDevice.modelName == "iPhone 5c" || UIDevice.modelName == "iPhone 5s" || UIDevice.modelName == "iPhone SE" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 18)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 18)
-            self.missionsDescription.font = UIFont.systemFont(ofSize: 16.5)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 16.5)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
+            self.missionsDescription.font = UIFont.systemFont(ofSize: 16)
         } else if UIDevice.modelName == "iPhone 6" || UIDevice.modelName == "iPhone 6s" || UIDevice.modelName == "iPhone 7" || UIDevice.modelName == "iPhone 8" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 22)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 22)
-            self.missionsDescription.font = UIFont.systemFont(ofSize: 19.5)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 20.5)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 20.5)
+            self.missionsDescription.font = UIFont.systemFont(ofSize: 19)
         } else if UIDevice.modelName == "iPhone 6 Plus" || UIDevice.modelName == "iPhone 6s Plus" || UIDevice.modelName == "iPhone 7 Plus" || UIDevice.modelName == "iPhone 8 Plus" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 24)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 24)
-            self.missionsDescription.font = UIFont.systemFont(ofSize: 21)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 23)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 23)
+            self.missionsDescription.font = UIFont.systemFont(ofSize: 20.5)
         } else {
             self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 21)
             self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 21)
@@ -147,7 +147,9 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshLabels(_ updateLists: Bool) {
         let ref = Database.database().reference().child("users").child(user.uid)
+        var completion = false
         ref.observeSingleEvent(of: .value) { (snapshot) in
+            completion = true
             let value = snapshot.value as! [String: Any]
             if let footprint = value["carbonFootprint"] as? Double {
                 self.carbonFootprintLabel.text = "\(footprint.round(to: 2)) tons/year"
@@ -161,7 +163,7 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
                     self.missionsList = Array(self.missions)
                 }
             } else {
-                let alert = UIAlertController(title: "Incomplete Survey", message: "We noticed that you closed the app before completing the survey.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Incomplete Survey", message: "It appears that you closed the app before completing the survey.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 
@@ -170,6 +172,20 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.view.window?.makeKeyAndVisible()
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if completion {
+                return
+            } else {
+                
+                let alert = UIAlertController(title: "No Connection", message: "It appears that you have lost internet connetion. Please check your internet connection and try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
+                    self.refreshLabels(true)
+                }))
+                self.present(alert, animated: true)
+            }
+        }
+        
     }
     
     func toDict<K, V>(_ tuples: [(K, V)]) -> [K: V]{

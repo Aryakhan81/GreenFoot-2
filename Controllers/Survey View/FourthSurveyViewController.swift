@@ -41,6 +41,12 @@ class FourthSurveyViewController: UIViewController {
             AlertPresenterService.alertEmptyField(self)
             return
         } else {
+            houseHeatingTextField.checkLegnth(self, to: 6)
+            houseCoolingTextField.checkLegnth(self, to: 6)
+            furnitureAppliancesTextField.checkLegnth(self, to: 7)
+            officeSuppliesTextField.checkLegnth(self, to: 7)
+            clothingTextField.checkLegnth(self, to: 7)
+            
             info.input_footprint_housing_hdd = Int(houseHeatingTextField.text!)
             info.input_footprint_housing_cdd = Int(houseCoolingTextField.text!)
             info.input_footprint_shopping_goods_default_furnitureappliances = Int(furnitureAppliancesTextField.text!)

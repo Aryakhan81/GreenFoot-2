@@ -48,19 +48,19 @@ class ProfileViewController: UIViewController, FUIAuthDelegate {
         logOutButton.layer.cornerRadius = 8
         
         if UIDevice.modelName == "iPhone 5" || UIDevice.modelName == "iPhone 5c" || UIDevice.modelName == "iPhone 5s" || UIDevice.modelName == "iPhone SE" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 16.5)
-            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 16.5)
-            self.starAmount.font = UIFont.systemFont(ofSize: 16.5)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
-            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
-            self.starDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 15.5)
+            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 15.5)
+            self.starAmount.font = UIFont.systemFont(ofSize: 15.5)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 15.5)
+            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 15.5)
+            self.starDescription.font = UIFont.boldSystemFont(ofSize: 15.5)
         } else if UIDevice.modelName == "iPhone 6" || UIDevice.modelName == "iPhone 6s" || UIDevice.modelName == "iPhone 7" || UIDevice.modelName == "iPhone 8" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 21)
-            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 21)
-            self.starAmount.font = UIFont.systemFont(ofSize: 21)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 21)
-            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 21)
-            self.starDescription.font = UIFont.boldSystemFont(ofSize: 21)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 20)
+            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 20)
+            self.starAmount.font = UIFont.systemFont(ofSize: 20)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.starDescription.font = UIFont.boldSystemFont(ofSize: 20)
         } else if UIDevice.modelName == "iPhone 6 Plus" || UIDevice.modelName == "iPhone 6s Plus" || UIDevice.modelName == "iPhone 7 Plus" || UIDevice.modelName == "iPhone 8 Plus" {
             self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 22)
             self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 22)

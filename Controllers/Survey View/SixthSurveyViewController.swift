@@ -41,6 +41,12 @@ class SixthSurveyViewController: UIViewController {
             AlertPresenterService.alertEmptyField(self)
             return
         } else {
+            milesVehicle1TextField.checkLegnth(self, to: 9)
+            mpgVehicle1TextField.checkLegnth(self, to: 4)
+            milesVehicle2TextField.checkLegnth(self, to: 9)
+            mpgVehicle2TextField.checkLegnth(self, to: 4)
+            milesVehicle3TextField.checkLegnth(self, to: 9)
+            
             info.input_footprint_transportation_miles1 = Int(milesVehicle1TextField.text!)
             info.input_footprint_transportation_mpg1 = Int(mpgVehicle1TextField.text!)
             info.input_footprint_transportation_miles2 = Int(milesVehicle2TextField.text!)

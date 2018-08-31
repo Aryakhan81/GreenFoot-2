@@ -42,6 +42,11 @@ class SecondSurveyViewController: UIViewController {
             AlertPresenterService.alertEmptyField(self)
             return
         } else {
+            meatFishEggsTextField.checkLegnth(self, to: 7)
+            dairyTextField.checkLegnth(self, to: 7)
+            fruitsVeggiesTextField.checkLegnth(self, to: 7)
+            cerealsTextField.checkLegnth(self, to: 7)
+            otherFoodsTextField.checkLegnth(self, to: 7)
             
             info.input_footprint_shopping_food_meatfisheggs = Int(meatFishEggsTextField.text!)
             info.input_footprint_shopping_food_dairy = Int(dairyTextField.text!)
