@@ -30,14 +30,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzC-Gw-N8G">
-                                        <rect key="frame" x="0.0" y="78.5" width="343" height="117.5"/>
+                                        <rect key="frame" x="0.0" y="78.5" width="343" height="117"/>
                                         <string key="text">Please fill out every field in the survey to the best of your ability (estimates are fine). Put 0 for Miles Driven and MPG for vehicles you don't own.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="gfCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Below are average utility costs for the US (most households use either natural gas or heating oil, not both):" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGm-6v-zgS">
-                                        <rect key="frame" x="0.0" y="216" width="343" height="117"/>
+                                        <rect key="frame" x="0.0" y="215.5" width="343" height="117.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17.5"/>
                                         <color key="textColor" name="gfCharcoal"/>
                                         <nil key="highlightedColor"/>
@@ -406,7 +406,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeR-Rc-5U8">
-                                                                <rect key="frame" x="169" y="0.0" width="158" height="158"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="158.5"/>
                                                             </pickerView>
                                                         </subviews>
                                                     </stackView>
@@ -1711,41 +1711,8 @@
         <namedColor name="gfCharcoal">
             <color red="0.21176470589999999" green="0.27058823529999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="gfCharcoal">
-            <color red="0.21176470589999999" green="0.27058823529999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfCharcoal">
-            <color red="0.21176470588235294" green="0.27058823529411763" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="gfOffWhite">
             <color red="0.95294117649999999" green="0.95294117649999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfOffWhite">
-            <color red="0.95294117649999999" green="0.95294117649999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfOffWhite">
-            <color red="0.95294117649999999" green="0.95294117649999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfOffWhite">
-            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfOffWhite">
-            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfOffWhite">
-            <color red="0.95294117649999999" green="0.95294117649999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfSeaBlue">
-            <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfSeaBlue">
-            <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfSeaBlue">
-            <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfSeaBlue">
-            <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gfSeaBlue">
             <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
