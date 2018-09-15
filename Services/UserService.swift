@@ -23,9 +23,22 @@ struct UserService {
     
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         let userAttrs: [String: Any] = ["username": username]
+        let usernameAttrs: [String: Any] = [firUser.uid: username]
         
-        let ref = Database.database().reference().child("users").child(firUser.uid)
-        ref.setValue(userAttrs) { (error, ref) in
+        let userRef = Database.database().reference().child("users").child(firUser.uid)
+        userRef.setValue(userAttrs) { (error, ref) in
+            if let _ = error {
+                return completion(nil)
+            }
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                let user = User(snapshot: snapshot)
+                completion(user)
+            })
+        }
+        
+        let usernameRef = Database.database().reference().child("usernames")
+        usernameRef.setValue(usernameAttrs) { (error, ref) in
             if let _ = error {
                 return completion(nil)
             }

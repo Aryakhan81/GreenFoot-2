@@ -79,6 +79,14 @@ class BasicResultsViewController: UIViewController {
                             if let error = error {
                                 self.alertFailure(error)
                             }
+                            
+                            let starsUsernameRef = Database.database().reference().child("usernames").child(self.user.username).child("stars")
+                            starsUsernameRef.setValue(0, withCompletionBlock: { (error, sur) in
+                                if let error = error {
+                                    self.alertFailure(error)
+                                }
+                            })
+                            
                             self.loading.text = "\(Double(value)!.round(to: 3)) tons/year"
                         })
                     })

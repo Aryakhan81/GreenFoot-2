@@ -14,6 +14,9 @@ protocol MissionTableViewCellDelegate: class {
 }
 
 class MissionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let alert = UIAlertController(title: "No Connection", message: "It appears that you have lost internet connetion. Please check your internet connection and try again.", preferredStyle: .alert)
+    
     var missions: [String: Double] = [:]
     var missionsList: [(key: String, value: Double)] = [] {
         didSet {
@@ -46,34 +49,43 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 ref.child("carbonReduced").setValue(reduced + self.missionsList[sender.tag].value, withCompletionBlock: { (error, rr) in
                     if let error = error {
-                        self.usernameLabel.text! = error.localizedDescription
+                        self.alertFailure(error)
                     }
                     
                     ref.child("stars").setValue(stars + Int(self.missionsList[sender.tag].value * 100), withCompletionBlock: { (error, sr) in
                         if let error = error {
-                            self.usernameLabel.text! = error.localizedDescription
+                            self.alertFailure(error)
                         }
                         
-                        self.missionsList.remove(at: sender.tag)
-                        self.missionsTableView.reloadData()
-                        
-                        ref.child("missions").setValue(self.toDict(self.missionsList), withCompletionBlock: { (error, mr) in
+                        let starsUsernameref = Database.database().reference().child("usernames").child(self.user.username).child("stars")
+                        starsUsernameref.setValue(stars + Int(self.missionsList[sender.tag].value * 100), withCompletionBlock: { (error, sur) in
+                            
                             if let error = error {
-                                self.usernameLabel.text! = error.localizedDescription
+                                self.alertFailure(error)
                             }
                             
-                            ref.child("carbonFootprint").setValue(newFootprint, withCompletionBlock: { (error, cr) in
+                            self.missionsList.remove(at: sender.tag)
+                            self.missionsTableView.reloadData()
+                            
+                            ref.child("missions").setValue(self.toDict(self.missionsList), withCompletionBlock: { (error, mr) in
                                 if let error = error {
-                                    self.usernameLabel.text! = error.localizedDescription
+                                    self.alertFailure(error)
                                 }
-                                DispatchQueue.main.async {
-                                    self.carbonFootprintLabel.text = "\(newFootprint.round(to: 2)) tons/year"
-                                }
+                                
+                                ref.child("carbonFootprint").setValue(newFootprint, withCompletionBlock: { (error, cr) in
+                                    if let error = error {
+                                        self.alertFailure(error)
+                                    }
+                                    
+                                    DispatchQueue.main.async {
+                                        self.carbonFootprintLabel.text = "\(newFootprint.round(to: 2)) tons/year"
+                                    }
+                                    
+                                })
                                 
                             })
                             
                         })
-                        
                     })
                 })
             }
@@ -188,10 +200,16 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func toDict<K, V>(_ tuples: [(K, V)]) -> [K: V]{
+    func toDict<K, V>(_ tuples: [(K, V)]) -> [K: V] {
         var dict:[K: V] = [K: V]()
         tuples.forEach { dict[$0.0] = $0.1 }
         return dict
     }
+    
+    func alertFailure(_ error: Error) {
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+
 
 }
