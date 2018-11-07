@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 
-class CompeteViewController: UIViewController {
+class CompeteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     //Get user data...
     let user = try! JSONDecoder().decode(User.self, from: UserDefaults.standard.value(forKey: "currentUser") as! Data)
     
@@ -17,6 +18,9 @@ class CompeteViewController: UIViewController {
     let alert = UIAlertController(title: "No Connection", message: "It appears that you have lost internet connetion. Please check your internet connection and try again.", preferredStyle: .alert)
     
     //@IBOutlets
+    @IBOutlet weak var competeSearchBar: UISearchBar!
+    @IBOutlet weak var competeResultsTableView: UITableView!
+    
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -62,6 +66,15 @@ class CompeteViewController: UIViewController {
         
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.cellForRow(at: indexPath)
+        return cell!
     }
     
     func alertFailure(_ error: Error) {

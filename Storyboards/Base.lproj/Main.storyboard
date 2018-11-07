@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e5f-Op-m2Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e5f-Op-m2Z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -118,10 +118,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="vDv-Kg-mEw">
-                                <rect key="frame" x="24.5" y="549" width="326.5" height="45"/>
+                                <rect key="frame" x="24" y="549" width="327" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJm-Sf-Sha">
-                                        <rect key="frame" x="0.0" y="0.0" width="125.5" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="45"/>
                                         <color key="backgroundColor" name="gfSeaBlue"/>
                                         <state key="normal" title="Retake Survey">
                                             <color key="titleColor" name="gfOffWhite"/>
@@ -131,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AZ-zD-6ov">
-                                        <rect key="frame" x="200.5" y="0.0" width="126" height="45"/>
+                                        <rect key="frame" x="201" y="0.0" width="126" height="45"/>
                                         <color key="backgroundColor" name="gfSeaBlue"/>
                                         <state key="normal" title="Credits">
                                             <color key="titleColor" name="gfOffWhite"/>
@@ -449,16 +449,16 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2q4-jF-xQi">
-                                                            <rect key="frame" x="8" y="8" width="256" height="58.5"/>
+                                                            <rect key="frame" x="8" y="8" width="311" height="58.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG1-kM-gJz">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="58.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="219" height="58.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZE-kl-QIF">
-                                                                    <rect key="frame" x="176" y="0.0" width="80" height="58.5"/>
+                                                                    <rect key="frame" x="231" y="0.0" width="80" height="58.5"/>
                                                                     <color key="backgroundColor" name="gfSeaBlue"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="80" id="wjW-dR-me6"/>
@@ -580,7 +580,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="526"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="competeTableViewCell" textLabel="GPr-3R-6gn" detailTextLabel="scX-hK-pRi" rowHeight="60" style="IBUITableViewCellStyleValue1" id="iJD-vB-rc3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="competeTableViewCell" textLabel="GPr-3R-6gn" detailTextLabel="scX-hK-pRi" rowHeight="60" style="IBUITableViewCellStyleValue1" id="iJD-vB-rc3" customClass="CompeteTableViewCell" customModule="GreenFoot" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iJD-vB-rc3" id="9dP-6d-1Mc">
@@ -603,6 +603,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="starsLable" destination="scX-hK-pRi" id="o9n-O9-Ghx"/>
+                                            <outlet property="usernameLabel" destination="GPr-3R-6gn" id="33x-eS-or5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -622,6 +626,10 @@
                         <viewLayoutGuide key="safeArea" id="ZnP-Og-j1R"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Compete" image="tab_find_friends_black" id="4oe-A4-2NP"/>
+                    <connections>
+                        <outlet property="competeResultsTableView" destination="h4q-92-fzu" id="vGE-55-oTy"/>
+                        <outlet property="competeSearchBar" destination="VCU-wF-iDy" id="qQw-wn-QnW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffk-J0-SxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
