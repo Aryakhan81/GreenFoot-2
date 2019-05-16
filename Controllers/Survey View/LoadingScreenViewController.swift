@@ -187,7 +187,7 @@ class LoadingScreenViewController: UIViewController {
                                 self.alertFailure(error)
                             }
                             
-                            let starsUsernameRef = Database.database().reference().child("usernames").child(self.user!.username).child("stars")
+                            let starsUsernameRef = Database.database().reference().child("usernames").child(self.user!.uid).child("stars")
                             starsUsernameRef.setValue(0, withCompletionBlock: { (error, sur) in
                                 if let error = error {
                                     self.alertFailure(error)

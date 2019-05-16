@@ -15,7 +15,9 @@ struct CompeteUserFinderService {
         ref.observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! [String]
             let usernames = value.map { $0.lowercased() }.filter { $0.contains(letters.lowercased()) }
-            if usernames.contains(<#T##element: String##String#>)
+            if usernames.contains(letters) {
+                return 
+            }
         }
         return [:]
     }
