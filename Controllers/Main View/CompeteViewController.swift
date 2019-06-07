@@ -24,7 +24,7 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         let ref = Database.database().reference().child("usernames").child(self.user.username)
         ref.child("shareData").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? Bool {

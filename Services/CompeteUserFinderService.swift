@@ -10,15 +10,14 @@ import Foundation
 import Firebase
 
 struct CompeteUserFinderService {
-    func find(contains letters: String) -> [String: Any] {
+    func find(contains letters: String) -> [String?] {
+        var usernames: [String?] = [nil]
         let ref = Database.database().reference().child("usernames")
         ref.observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! [String]
-            let usernames = value.map { $0.lowercased() }.filter { $0.contains(letters.lowercased()) }
-            if usernames.contains(letters) {
-                return 
-            }
+            usernames = value.map { $0.lowercased() }.filter { $0.contains(letters.lowercased()) }
         }
-        return [:]
+        
+        return usernames
     }
 }

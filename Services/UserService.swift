@@ -35,17 +35,6 @@ struct UserService {
                 completion(user)
             })
         }
-        
-        let usernameRef = Database.database().reference().child("usernames").child(firUser.uid).child("username")
-        usernameRef.setValue(username) { (error, ref) in
-            if let _ = error {
-                return completion(nil)
-            }
-            
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                let user = User(snapshot: snapshot)
-                completion(user)
-            })
-        }
+
     }
 }
