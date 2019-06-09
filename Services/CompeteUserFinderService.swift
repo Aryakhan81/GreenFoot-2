@@ -10,8 +10,9 @@ import Foundation
 import Firebase
 
 struct CompeteUserFinderService {
-    func find(contains letters: String) -> [String?] {
-        var usernames: [String?] = [nil]
+    static func findCompetitors(contains letters: String?) -> [String] {
+        guard let letters = letters else { return [] }
+        var usernames: [String] = []
         let ref = Database.database().reference().child("usernames")
         ref.observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! [String]
@@ -19,5 +20,21 @@ struct CompeteUserFinderService {
         }
         
         return usernames
+    }
+    
+    static func getData(_ usernames: [String]) -> [String: Any] {
+        guard !usernames.isEmpty else { return [:] }
+        
+        var userData = [String: Any]()
+        let ref = Database.database().reference().child("usernames")
+        for user in usernames {
+            ref.child(user).observeSingleEvent(of: .value) { (snapshot) in
+                let value = snapshot.value as! [String: Any]
+                guard (value["shareData"] as! Bool) else { return }
+                userData[user] = value["stars"]
+            }
+        }
+        
+        return userData
     }
 }
