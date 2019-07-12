@@ -94,6 +94,8 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "competeTableViewCell") as! CompeteTableViewCell
         cell.usernameLabel.text = Array(userData.keys)[indexPath.row]
         cell.starsLabel.text = String(Array(userData.values)[indexPath.row])
+        print(cell.usernameLabel)
+        print(cell.starsLabel)
         return cell
     }
     
@@ -102,13 +104,21 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(alert, animated: true)
     }
     
-    //When the screen is tapped, the table view will reload and the search results will pop up
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    func loadUsers() {
         self.competeSearchBar.resignFirstResponder()
         usernames = CompeteUserFinderService.findCompetitors(contains: self.competeSearchBar.text)
         userData = CompeteUserFinderService.getData(usernames) as! [String: Int]
         
         competeResultsTableView.reloadData()
+    }
+    
+    //When the Search button on keyboard is clicked, the table view will reload and the search results will pop up
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.loadUsers()
+    }
+    //When the screen is tapped, the table view will reload and the search results will pop up
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        self.loadUsers()
         
     }
 

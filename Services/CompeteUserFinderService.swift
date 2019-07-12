@@ -12,11 +12,13 @@ import Firebase
 struct CompeteUserFinderService {
     static func findCompetitors(contains letters: String?) -> [String] {
         guard let letters = letters else { return [] }
-        var usernames: [String] = []
+        var usernames = [String]()
         let ref = Database.database().reference().child("usernames")
         ref.observeSingleEvent(of: .value) { (snapshot) in
-            let value = snapshot.value as! [String]
+            let value = Array((snapshot.value as! [String: Any]).keys)
             usernames = value.map { $0.lowercased() }.filter { $0.contains(letters.lowercased()) }
+            print(value)
+            print(usernames)
         }
         
         return usernames
