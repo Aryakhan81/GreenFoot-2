@@ -104,21 +104,38 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(alert, animated: true)
     }
     
-    func loadUsers() {
+    func loadUsers(text: String) {
         self.competeSearchBar.resignFirstResponder()
-        usernames = CompeteUserFinderService.findCompetitors(contains: self.competeSearchBar.text)
-        userData = CompeteUserFinderService.getData(usernames) as! [String: Int]
+        CompeteUserFinderService.findCompetitors(contains: text, completion: { (usernames) in
+            print("I got this: ")
+            print(usernames)
+            print("lolol")
+            CompeteUserFinderService.getData(usernames) { (userData) in
+                self.userData = userData
+                self.competeResultsTableView.reloadData()
+            }
+            
+        })
         
-        competeResultsTableView.reloadData()
+        
     }
     
     //When the Search button on keyboard is clicked, the table view will reload and the search results will pop up
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.loadUsers()
+        if let searchText = competeSearchBar.text {
+            self.loadUsers(text: searchText)
+        } else {
+            return
+        }
+        
     }
     //When the screen is tapped, the table view will reload and the search results will pop up
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        self.loadUsers()
+        if let searchText = competeSearchBar.text {
+            self.loadUsers(text: searchText)
+        } else {
+            return
+        }
         
     }
 
