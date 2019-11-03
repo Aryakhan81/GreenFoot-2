@@ -32,9 +32,9 @@ struct CompeteUserFinderService {
         let ref = Database.database().reference().child("usernames")
         for user in usernames {
             ref.child(user).observeSingleEvent(of: .value) { (snapshot) in
-                let value = snapshot.value as! [String: Int]
+                let value = snapshot.value as! [String: Any]
                 guard (value["shareData"] as! Bool) else { return }
-                userData[user] = value["stars"]
+                userData[user] = value["stars"] as! Int
             }
         }
         completion(userData)
