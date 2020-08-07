@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CompeteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     //Get user data...
     let user = try! JSONDecoder().decode(User.self, from: UserDefaults.standard.value(forKey: "currentUser") as! Data)
@@ -23,17 +23,18 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //User's info collectors
     var usernames = [String]()
-    var userData = [String: Int]()
+    var userData = [String: Int]() {
+        didSet {
+            self.competeResultsTableView.reloadData()
+        }
+    }
     
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.competeResultsTableView.allowsSelection = false
         
-        //Required setting of delegates and data sources
-        competeSearchBar.delegate = self
-        competeResultsTableView.delegate = self
-        competeResultsTableView.dataSource = self
+        //Set up the table view
+        self.setUpTableView()
         
         //Make the search bar the first responder
         self.competeSearchBar.becomeFirstResponder()
@@ -64,7 +65,7 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
                         }
                     })
                 }))
-                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in
+                alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (action) in
                     let alert = UIAlertController(title: "Compete Mode Disabled", message: "You will not be able to see others' usernames and star counts, and they will not be able to see yours. You can change this at any time.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
                         ref.child("shareData").setValue(false, withCompletionBlock: { (error, dr) in
@@ -81,21 +82,34 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         })
         
+    }
+    
+    func setUpTableView() {
         
+        //No selections for this table view
+        self.competeResultsTableView.allowsSelection = false
         
-        
+        //Required setting of delegates and data sources
+        self.competeSearchBar.delegate = self
+        self.competeResultsTableView.delegate = self
+        self.competeResultsTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usernames.count
+        return userData.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "competeTableViewCell") as! CompeteTableViewCell
-        cell.usernameLabel.text = Array(userData.keys)[indexPath.row]
-        cell.starsLabel.text = String(Array(userData.values)[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "competeTableViewCell", for: indexPath) as! CompeteTableViewCell
+        print(userData.keys)
+        
         print(cell.usernameLabel)
         print(cell.starsLabel)
+        
+        cell.usernameLabel.text = Array(userData.keys)[indexPath.row]
+        cell.starsLabel.text = String(Array(userData.values)[indexPath.row])
+        
         return cell
     }
     
@@ -112,7 +126,7 @@ class CompeteViewController: UIViewController, UITableViewDataSource, UITableVie
             print("lolol")
             CompeteUserFinderService.getData(usernames) { (userData) in
                 self.userData = userData
-                self.competeResultsTableView.reloadData()
+                print(userData)
             }
             
         })
