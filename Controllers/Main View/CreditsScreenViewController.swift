@@ -28,31 +28,31 @@ class CreditsScreenViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             urlToContact = "http://coolclimate.berkeley.edu"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+
         case 1:
-            urlToContact = "https://firebase.google.com"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 2:
             urlToContact = "https://www.makeschool.com"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 3:
-            urlToContact = "https://github.com/SwiftyJSON/SwiftyJSON"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 4:
-            urlToContact = "https://github.com/tadija/AEXML"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 5:
-            urlToContact = "https://github.com/drmohundro/SWXMLHash"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 6:
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+
+        case 2:
             urlToContact = "help.greenfoot@gmail.com"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 7:
+            UIApplication.shared.open(URL(string: "mailto:\(urlToContact)")!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+        case 3:
             urlToContact = "https://www.freeprivacypolicy.com/privacy/view/deb4670728e0e6f278e50ae3899526bf"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
-        case 8:
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+        case 4:
             urlToContact = "https://greenfoothelp.weebly.com"
-            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
         default:
             return
         }

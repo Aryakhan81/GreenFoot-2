@@ -20,10 +20,14 @@ class LoadingScreenViewController: UIViewController {
     let alert = UIAlertController(title: "No Connection", message: "It appears that you have lost internet connetion. Please check your internet connection and try again.", preferredStyle: .alert)
     
     var params: Parameters = [:]
+    var headers: HTTPHeaders = [:]
     
     var abbv: String? {
         didSet {
             info.internal_state_abbreviation = self.abbv!
+            
+            headers = ["app_id": appInfo.AppID,
+                       "app_key": appInfo.AppKey]
             
             params = ["input_location": info.input_location!,
                       "input_income": info.input_income!,
@@ -98,8 +102,9 @@ class LoadingScreenViewController: UIViewController {
             "input_footprint_housing_gco2_per_kwh": info.input_footprint_housing_gco2_per_kwh,
             "input_footprint_housing_hdd": info.input_footprint_housing_hdd!,
             "input_footprint_housing_cdd": info.input_footprint_housing_cdd!,
-            "app_id": appInfo.AppID,
-            "app_key": appInfo.AppKey]
+//            "app_id": appInfo.AppID,
+//            "app_key": appInfo.AppKey
+            ]
             
             self.calculateFootprint()
         }
@@ -147,7 +152,7 @@ class LoadingScreenViewController: UIViewController {
         let apiToContact = "https://apis.berkeley.edu/coolclimate/footprint?"
         let apiURL = URL(string: apiToContact)!
         
-        Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).validate().response { (response) in
+        Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).validate().response { (response) in
             guard let xml = response.data else { return }
             var options = AEXMLOptions()
             options.parserSettings.shouldProcessNamespaces = false

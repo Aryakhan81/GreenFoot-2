@@ -63,7 +63,19 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if let error = error {
                             self.alertFailure(error)
                         }
+                        
+                        Database.database().reference().child("users").child(self.user.uid).observeSingleEvent(of: .value) { (snapshot) in
+                            let value = snapshot.value as! [String: Any]
+                            let stars = value["stars"] as! Int
+                            ref.child("stars").setValue(stars, withCompletionBlock: { (error, dr) in
+                                if let error = error {
+                                    self.alertFailure(error)
+                                }
+                            })
+                        }
+                        
                     })
+                    
                 }))
                 alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (action) in
                     let alert = UIAlertController(title: "Compete Mode Disabled", message: "You will not be able to see others' usernames and star counts, and they will not be able to see yours. You can change this at any time.", preferredStyle: .alert)
@@ -84,6 +96,7 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    //Set up the basic aspects of the table view
     func setUpTableView() {
         
         //No selections for this table view
@@ -95,11 +108,13 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.competeResultsTableView.dataSource = self
     }
     
+    //How many cells should be in the table view?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userData.count
         
     }
     
+    //Set the information of the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "competeTableViewCell", for: indexPath) as! CompeteTableViewCell
         print(userData.keys)
@@ -108,16 +123,18 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(cell.starsLabel)
         
         cell.usernameLabel.text = Array(userData.keys)[indexPath.row]
-        cell.starsLabel.text = String(Array(userData.values)[indexPath.row])
+        cell.starsLabel.text = String(Array(userData.values)[indexPath.row]) + " Stars"
         
         return cell
     }
     
+    //Alerts the user of a failure of any sort using a UIAlert popup
     func alertFailure(_ error: Error) {
         alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
+    //Loads the user data used to fill in the table
     func loadUsers(text: String) {
         self.competeSearchBar.resignFirstResponder()
         CompeteUserFinderService.findCompetitors(contains: text, completion: { (usernames) in
@@ -134,23 +151,23 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    //When the Search button on keyboard is clicked, the table view will reload and the search results will pop up
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //What should be done when we are about to search?
+    func initializeSearch() {
         if let searchText = competeSearchBar.text {
             self.loadUsers(text: searchText)
         } else {
             return
         }
+    }
+    
+    //When the Search button on keyboard is clicked, the table view will reload and the search results will pop up
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.initializeSearch()
         
     }
     //When the screen is tapped, the table view will reload and the search results will pop up
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        if let searchText = competeSearchBar.text {
-            self.loadUsers(text: searchText)
-        } else {
-            return
-        }
-        
+        self.initializeSearch()
     }
 
 }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DPt-RE-0gm">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DPt-RE-0gm">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -21,29 +19,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xi1-ek-eUY">
-                                <rect key="frame" x="16" y="20" width="343" height="623"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="643"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survey Instructions:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-P7-1Vj">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="62.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <color key="textColor" name="gfCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzC-Gw-N8G">
-                                        <rect key="frame" x="0.0" y="78.5" width="343" height="117"/>
+                                        <rect key="frame" x="0.0" y="82.5" width="343" height="125.5"/>
                                         <string key="text">Please fill out every field in the survey to the best of your ability (estimates are fine). Put 0 for Miles Driven and MPG for vehicles you don't own.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="gfCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Below are average utility costs for the US (most households use either natural gas or heating oil, not both):" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGm-6v-zgS">
-                                        <rect key="frame" x="0.0" y="215.5" width="343" height="117.5"/>
+                                        <rect key="frame" x="0.0" y="228" width="343" height="125"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17.5"/>
                                         <color key="textColor" name="gfCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rQj-s0-X1m">
-                                        <rect key="frame" x="0.0" y="353" width="343" height="142"/>
+                                        <rect key="frame" x="0.0" y="373" width="343" height="142"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTd-nZ-5xz">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -128,7 +126,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rY1-pU-Sa1">
-                                        <rect key="frame" x="0.0" y="515" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="535" width="343" height="44"/>
                                         <color key="backgroundColor" name="gfSeaBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="AYZ-de-NRH"/>
@@ -142,7 +140,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8GI-h0-CXw">
-                                        <rect key="frame" x="0.0" y="579" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="599" width="343" height="44"/>
                                         <color key="backgroundColor" name="gfSeaBlue"/>
                                         <state key="normal" title="Continue to Basic Survey">
                                             <color key="titleColor" name="gfOffWhite"/>
@@ -191,30 +189,29 @@
             <objects>
                 <viewController id="AxX-rp-WQo" customClass="InitialSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Vv-w3-5R3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="WHX-sB-AtN">
-                                <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lhv-wO-UU5">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hYM-uX-rVi">
-                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Fe-mv-LRS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your zipcode?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXb-CG-Uds">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xwK-eh-X7Q">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -229,17 +226,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oib-4k-yrb">
-                                                <rect key="frame" x="0.0" y="114.5" width="327" height="98"/>
+                                                <rect key="frame" x="0.0" y="114" width="327" height="98.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many people live in your house?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peH-aY-r3I">
-                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="gfCharcoal"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWi-2G-dJ1">
-                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
@@ -256,40 +252,38 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjw-pL-sXd">
                                                         <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xde-aF-ZTP">
-                                                <rect key="frame" x="0.0" y="342.5" width="327" height="98"/>
+                                                <rect key="frame" x="0.0" y="342.5" width="327" height="98.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many children live in your house?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKV-aP-0iU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="gfCharcoal"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Bz-mB-pEi">
-                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SQg-07-VhU">
-                                                <rect key="frame" x="0.0" y="456.5" width="327" height="98.5"/>
+                                                <rect key="frame" x="0.0" y="457" width="327" height="98"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your annual income?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EET-it-8Ta">
-                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="gfCharcoal"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftq-t7-jPW">
-                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
+                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                     </pickerView>
                                                 </subviews>
                                                 <constraints>
@@ -357,14 +351,14 @@
             <objects>
                 <viewController id="hYe-Qr-tJa" customClass="BasicSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oi8-T1-Oyj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sS4-G4-kwb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ygd-bU-CRI">
-                                        <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mdY-nI-VwV">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
@@ -390,7 +384,6 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zipcode..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KTZ-Xu-oqV">
                                                                 <rect key="frame" x="168.5" y="0.0" width="158.5" height="158.5"/>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -498,11 +491,11 @@
             <objects>
                 <viewController id="y5P-9Y-tgE" customClass="BasicResultsViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pvG-xw-0MT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="ICH-1G-t7u">
-                                <rect key="frame" x="16" y="20" width="343" height="623"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="623"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your Carbon Footprint Estimate:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivp-8e-KCc">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="206"/>
@@ -589,33 +582,32 @@
             <objects>
                 <viewController id="fuQ-19-xzk" customClass="SecondSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lCd-5C-cAu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44h-3t-Bcv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="whJ-MZ-87v">
-                                        <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OHD-Z1-0D0">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5qM-zN-vKZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F1U-Ts-4O0">
-                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many calories of meat, fish and eggs do you eat daily?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp7-EK-eBJ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <color key="textColor" name="gfCharcoal"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-UX-JWy">
-                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                                     </textField>
@@ -630,17 +622,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tlF-P6-5o2">
-                                                        <rect key="frame" x="0.0" y="114.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="114" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many calories of dairy do you eat daily?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qj4-Xe-3w9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AG7-S3-cPu">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -657,41 +648,38 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RVw-GF-v3d">
                                                                 <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fNk-Fw-1ck">
-                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many calories of cereals do you eat daily?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stk-W7-7jP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15.5"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTs-GB-vLh">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bIP-Yz-yy5">
-                                                        <rect key="frame" x="0.0" y="456.5" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="457" width="327" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many calories of other foods do you eat daily?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkr-qR-rGK">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9q-oS-yeT">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -772,30 +760,29 @@
             <objects>
                 <viewController id="Ypw-f4-rxo" customClass="ThirdSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p3X-nb-UEC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="dEc-ii-BAk">
-                                <rect key="frame" x="16" y="20" width="343" height="623"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FDO-Pa-WWK">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="555"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8qo-su-vwY">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="98.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="98"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-Ve-4v7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your annual electrical bill?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9t-rw-one">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKH-tw-gN0">
-                                                                <rect key="frame" x="172.5" y="0.0" width="162.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="172.5" y="0.0" width="162.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -810,17 +797,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dxB-DW-cj0">
-                                                <rect key="frame" x="0.0" y="114.5" width="335" height="98"/>
+                                                <rect key="frame" x="0.0" y="114" width="335" height="98.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your annual natural gas bill? " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7Z-vc-nxP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="98"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="gfCharcoal"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNV-2R-6Mq">
-                                                        <rect key="frame" x="172.5" y="0.0" width="162.5" height="98"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="172.5" y="0.0" width="162.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
@@ -837,41 +823,38 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7p-x5-aD0">
                                                         <rect key="frame" x="172.5" y="0.0" width="162.5" height="98"/>
-                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-0m-yla">
-                                                <rect key="frame" x="0.0" y="342.5" width="335" height="98"/>
+                                                <rect key="frame" x="0.0" y="342.5" width="335" height="98.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your annual water/sewage bill?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO4-4R-n3o">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="98"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="gfCharcoal"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30S-Ng-CD2">
-                                                        <rect key="frame" x="172.5" y="0.0" width="162.5" height="98"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="172.5" y="0.0" width="162.5" height="98.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ffn-3v-hJd">
-                                                <rect key="frame" x="0.0" y="456.5" width="335" height="98.5"/>
+                                                <rect key="frame" x="0.0" y="457" width="335" height="98"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How large is your house (square feet)?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVm-in-BjC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="gfCharcoal"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dC8-cR-0yx">
-                                                        <rect key="frame" x="172.5" y="0.0" width="162.5" height="98.5"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="172.5" y="0.0" width="162.5" height="98"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                     </textField>
@@ -942,33 +925,32 @@
             <objects>
                 <viewController id="qQv-YF-HbY" customClass="FourthSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fd4-to-7QB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPJ-hS-DAG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="d5A-xm-zyD">
-                                        <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dsb-dl-Vsy">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ql3-Cw-sWX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-5N-A1a">
-                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many days do you heat your house per year?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-1u-C1T">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" name="gfCharcoal"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jfq-68-BS8">
-                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                                     </textField>
@@ -983,17 +965,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tl8-XH-6e6">
-                                                        <rect key="frame" x="0.0" y="114.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="114" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many days do you cool your house per year?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qs-05-s6Q">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zt3-An-K8v">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1010,41 +991,38 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fg-yk-lBz">
                                                                 <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bao-Pr-ibJ">
-                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you spend on office supplies per year?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox1-bS-HIh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15.5"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iiN-4o-nPU">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2YU-AJ-V9O">
-                                                        <rect key="frame" x="0.0" y="456.5" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="457" width="327" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you spend on clothing per year?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-rB-Tpy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4BS-Dj-2rc">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1125,33 +1103,32 @@
             <objects>
                 <viewController id="RJJ-ib-V2l" customClass="FifthSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ygk-vd-c7r">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-ht-sHS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZUm-Ko-WxT">
-                                        <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4X9-T9-z3e">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SgZ-92-n3x">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2e0-6h-G5J">
-                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you spend on entertainment per year?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9y4-jw-maK">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <color key="textColor" name="gfCharcoal"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ync-72-7lm">
-                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                                     </textField>
@@ -1166,17 +1143,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yeh-Ma-PuG">
-                                                        <rect key="frame" x="0.0" y="114.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="114" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you spend on personal care (e. g. makeup) per year?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0a-Ub-YBh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Yu-ob-QUc">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1193,41 +1169,38 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uea-5Y-Iik">
                                                                 <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QjF-3r-SCz">
-                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you spend on auto repairs per year?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QM-U8-qad">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mML-s6-shR">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1t7-wu-rT9">
-                                                        <rect key="frame" x="0.0" y="456.5" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="457" width="327" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much do you spend on services per year?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2M-gp-X1a">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRv-vQ-4eu">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1308,33 +1281,32 @@
             <objects>
                 <viewController id="bBA-U4-3Rf" customClass="SixthSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tap-jq-3jT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Je1-3h-JWf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="S0v-ul-EOS">
-                                        <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-RR-Kch">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qfx-oz-TEU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="N19-K9-GhR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles do you drive per year in your primary vehicle? " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9U-bh-Uoz">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <color key="textColor" name="gfCharcoal"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-fw-6mx">
-                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                                     </textField>
@@ -1349,17 +1321,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3iT-9M-dab">
-                                                        <rect key="frame" x="0.0" y="114.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="114" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the MPG of that vehicle?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd8-3j-K0Y">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fs7-Ue-3jE">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1376,41 +1347,38 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KlV-b0-DBh">
                                                                 <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WFl-MW-hCX">
-                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the MPG of that vehicle?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKd-AT-jIs">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbw-qe-Vp4">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QMI-tR-k8H">
-                                                        <rect key="frame" x="0.0" y="456.5" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="457" width="327" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles do you drive per year in you third vehicle?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-T3-dlM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pp-GK-xmP">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1491,33 +1459,32 @@
             <objects>
                 <viewController id="2zO-VF-KZi" customClass="SeventhSurveyViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDl-Mf-Scl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tW-fV-hO4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="FLg-Tb-yzq">
-                                        <rect key="frame" x="24" y="20" width="327" height="623"/>
+                                        <rect key="frame" x="24" y="0.0" width="327" height="623"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5NK-dm-ROE">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="555"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Q1-Gn-csB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Rj-yn-Rf9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the MPG of that vehicle?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN6-6e-od5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <color key="textColor" name="gfCharcoal"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t8o-KA-7x0">
-                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                                     </textField>
@@ -1532,17 +1499,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UeA-W8-r8u">
-                                                        <rect key="frame" x="0.0" y="114.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="114" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles do you drive in your fourth vehicle?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDc-w1-Aai">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8iL-xw-WX1">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1559,41 +1525,38 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aCc-OR-3YX">
                                                                 <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eik-7K-eAM">
-                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98"/>
+                                                        <rect key="frame" x="0.0" y="342.5" width="327" height="98.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles per year do you travel by plane?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpP-Tv-kAO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0jF-A3-Maq">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l1v-VQ-H0V">
-                                                        <rect key="frame" x="0.0" y="456.5" width="327" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="457" width="327" height="98"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many miles per year do you travel by public transportation?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nng-Cc-GSs">
-                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" name="gfCharcoal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zZa-oz-pVH">
-                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98.5"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="168.5" y="0.0" width="158.5" height="98"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                                             </textField>
@@ -1675,11 +1638,11 @@
             <objects>
                 <viewController id="eew-iB-mtN" customClass="LoadingScreenViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="79M-9C-eJ1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading... " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcD-A4-4jU">
-                                <rect key="frame" x="16" y="290.5" width="343" height="86"/>
+                                <rect key="frame" x="16" y="270.5" width="343" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="86" id="Mzl-co-h1G"/>
                                     <constraint firstAttribute="height" constant="86" id="YYA-fY-UC1"/>
@@ -1707,18 +1670,18 @@
             <point key="canvasLocation" x="4432.5" y="55.985915492957744"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="gfCharcoal">
-            <color red="0.21176470589999999" green="0.27058823529999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfOffWhite">
-            <color red="0.95294117649999999" green="0.95294117649999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gfSeaBlue">
-            <color red="0.0039215686269999999" green="0.0039215686269999999" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4Pa-qB-l8M"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <namedColor name="gfCharcoal">
+            <color red="0.21176470588235294" green="0.27058823529411763" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gfOffWhite">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gfSeaBlue">
+            <color red="0.0039215686274509803" green="0.0039215686274509803" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

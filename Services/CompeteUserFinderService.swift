@@ -54,7 +54,15 @@ struct CompeteUserFinderService {
         //Get the data for this user
         ref.child(username).observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! [String: Any]
+            
+            //Check if they want to share data
             guard (value["shareData"] as! Bool) else { return }
+            
+            //Check if there's something there for the stars
+            let userStars: Int? = value["stars"] as? Int
+            guard userStars != nil else { return }
+            
+            //Add the username-stars pair to the dictionary
             userData[username] = (value["stars"] as! Int)
             
             completion(userData)
