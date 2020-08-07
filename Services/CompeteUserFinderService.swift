@@ -17,10 +17,8 @@ struct CompeteUserFinderService {
         ref.keepSynced(true)
         ref.observeSingleEvent(of: .value) { (snapshot) in
             let value = Array((snapshot.value as! [String: Any]).keys)
-//            usernames = value.map { $0.lowercased() }.filter { $0.contains(letters.lowercased()) }
             usernames = value.filter{ $0.contains(letters.lowercased()) || $0.contains(letters) }
-            print(value)
-            print(usernames)
+
             completion(usernames)
         }
         
@@ -37,13 +35,6 @@ struct CompeteUserFinderService {
                 completion(userDataList)
             }
         }
-        
-        
-        
-//        for user in usernames {
-//            print(ref.child(user))
-//
-//        }
         
     }
     

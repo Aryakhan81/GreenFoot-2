@@ -117,10 +117,6 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
     //Set the information of the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "competeTableViewCell", for: indexPath) as! CompeteTableViewCell
-        print(userData.keys)
-        
-        print(cell.usernameLabel)
-        print(cell.starsLabel)
         
         cell.usernameLabel.text = Array(userData.keys)[indexPath.row]
         cell.starsLabel.text = String(Array(userData.values)[indexPath.row]) + " Stars"
@@ -138,12 +134,10 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
     func loadUsers(text: String) {
         self.competeSearchBar.resignFirstResponder()
         CompeteUserFinderService.findCompetitors(contains: text, completion: { (usernames) in
-            print("I got this: ")
-            print(usernames)
-            print("lolol")
+
             CompeteUserFinderService.getData(usernames) { (userData) in
                 self.userData = userData
-                print(userData)
+
             }
             
         })
