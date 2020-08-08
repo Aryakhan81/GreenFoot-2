@@ -101,3 +101,6 @@ A user opens the app and sees a login/sign up screen. If they are a new user, th
 ### Friday
 - Practice pitch
 - Give pitch at demo day!
+
+## After Make School
+- Work on the compete view

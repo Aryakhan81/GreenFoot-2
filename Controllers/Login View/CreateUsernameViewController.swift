@@ -18,6 +18,11 @@ class CreateUsernameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.layer.cornerRadius = 8
+        
+        //Dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {

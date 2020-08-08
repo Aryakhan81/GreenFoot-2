@@ -8,16 +8,19 @@
 
 import UIKit
 
-var info = SurveyInfo()
-
 class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    //Vars storing info from basic survey
+    var incomeRow: Int? = nil
+    var zipCode: String? = nil
+    var housePop: String? = nil
     
     
     //@IBOutlets
-    @IBOutlet weak var zipcodeTextField: InputNumberTextField!
-    @IBOutlet weak var housePopTextField: InputNumberTextField!
-    @IBOutlet weak var houseAdultsTextField: InputNumberTextField!
-    @IBOutlet weak var houseChildrenTextField: InputNumberTextField!
+    @IBOutlet weak var zipcodeTextField: UITextField!
+    @IBOutlet weak var housePopTextField: UITextField!
+    @IBOutlet weak var houseAdultsTextField: UITextField!
+    @IBOutlet weak var houseChildrenTextField: UITextField!
     @IBOutlet weak var incomePickerView: UIPickerView!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -27,27 +30,29 @@ class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         incomePickerView.delegate = self
+        incomePickerView.dataSource = self
+        
+        //Set text field values to those from basic survey, if completed
+        if let zipCode = self.zipCode {
+            self.zipcodeTextField.text = zipCode
+            
+            if let housePop = self.housePop {
+                self.housePopTextField.text = housePop
+            }
+            
+            if let incomeRow = self.incomeRow {
+                if incomeRow != 0 {
+                    self.incomePickerView.selectRow(incomeRow - 1, inComponent: 0, animated: false)
+                } else {
+                    self.incomePickerView.selectRow(0, inComponent: 0, animated: false)
+                }
+            }
+        }
+        
         //Dismiss keyboard
-        zipcodeTextField.doneButtonPressed = {
-            if self.zipcodeTextField.isFirstResponder {
-                self.zipcodeTextField.resignFirstResponder()
-            }
-        }
-        housePopTextField.doneButtonPressed = {
-            if self.housePopTextField.isFirstResponder {
-                self.housePopTextField.resignFirstResponder()
-            }
-        }
-        houseAdultsTextField.doneButtonPressed = {
-            if self.houseAdultsTextField.isFirstResponder {
-                self.houseAdultsTextField.resignFirstResponder()
-            }
-        }
-        houseChildrenTextField.doneButtonPressed = {
-            if self.houseChildrenTextField.isFirstResponder {
-                self.houseChildrenTextField.resignFirstResponder()
-            }
-        }
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         
         //Style
         zipcodeTextField.layer.cornerRadius = 8
@@ -73,17 +78,31 @@ class InitialSurveyViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        guard !zipcodeTextField.isEmpty(), !housePopTextField.isEmpty(), !houseAdultsTextField.isEmpty(), !houseChildrenTextField.isEmpty() else { return }
+        if zipcodeTextField.text!.isEmpty || housePopTextField.text!.isEmpty || houseAdultsTextField.text!.isEmpty || houseChildrenTextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            if zipcodeTextField.text!.count == 5 {
+                housePopTextField.checkLegnth(self, to: 5)
+                houseAdultsTextField.checkLegnth(self, to: 5)
+                houseChildrenTextField.checkLegnth(self, to: 5)
+                
+                info.input_location = Int(zipcodeTextField.text!)
+                info.input_size = Int(housePopTextField.text!)
+                info.input_footprint_household_adults = Int(houseAdultsTextField.text!)
+                info.input_footprint_household_children = Int(houseChildrenTextField.text!)
+                info.input_income = incomePickerView.selectedRow(inComponent: 0) + 2
+                
+                self.performSegue(withIdentifier: "to2", sender: self)
+            } else {
+                let alert = UIAlertController(title: "Invalid Zipcode", message: "Please enter a valid 5-digit zipcode.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
+                    self.zipcodeTextField.becomeFirstResponder()
+                }))
+                self.present(alert, animated: true)
+            }
+        }
         
-        info.input_location = Int(zipcodeTextField.text!)
-        info.input_size = Int(housePopTextField.text!)
-        info.input_footprint_household_adults = Int(houseAdultsTextField.text!)
-        info.input_footprint_household_children = Int(houseChildrenTextField.text!)
-        
-        info.input_income = incomePickerView.selectedRow(inComponent: 0) + 2
-        
-        self.performSegue(withIdentifier: "to2", sender: self)
     }
-    
 
 }

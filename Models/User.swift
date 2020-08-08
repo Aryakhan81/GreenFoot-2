@@ -10,6 +10,8 @@ import Foundation
 import FirebaseDatabase
 
 class User: Codable {
+    
+    // User properties...
     let uid: String
     let username: String
     var carbonFootprint: String?

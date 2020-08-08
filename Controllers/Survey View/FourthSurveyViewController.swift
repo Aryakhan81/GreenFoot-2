@@ -11,11 +11,11 @@ import UIKit
 class FourthSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var houseHeatingTextField: InputNumberTextField!
-    @IBOutlet weak var houseCoolingTextField: InputNumberTextField!
-    @IBOutlet weak var furnitureAppliancesTextField: InputNumberTextField!
-    @IBOutlet weak var officeSuppliesTextField: InputNumberTextField!
-    @IBOutlet weak var clothingTextField: InputNumberTextField!
+    @IBOutlet weak var houseHeatingTextField: UITextField!
+    @IBOutlet weak var houseCoolingTextField: UITextField!
+    @IBOutlet weak var furnitureAppliancesTextField: UITextField!
+    @IBOutlet weak var officeSuppliesTextField: UITextField!
+    @IBOutlet weak var clothingTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
 
@@ -23,31 +23,9 @@ class FourthSurveyViewController: UIViewController {
         super.viewDidLoad()
         
         //Dismiss keyboard
-        houseHeatingTextField.doneButtonPressed = {
-            if self.houseHeatingTextField.isFirstResponder {
-                self.houseHeatingTextField.resignFirstResponder()
-            }
-        }
-        houseCoolingTextField.doneButtonPressed = {
-            if self.houseCoolingTextField.isFirstResponder {
-                self.houseCoolingTextField.resignFirstResponder()
-            }
-        }
-        furnitureAppliancesTextField.doneButtonPressed = {
-            if self.furnitureAppliancesTextField.isFirstResponder {
-                self.furnitureAppliancesTextField.resignFirstResponder()
-            }
-        }
-        officeSuppliesTextField.doneButtonPressed = {
-            if self.officeSuppliesTextField.isFirstResponder {
-                self.officeSuppliesTextField.resignFirstResponder()
-            }
-        }
-        clothingTextField.doneButtonPressed = {
-            if self.clothingTextField.isFirstResponder {
-                self.clothingTextField.resignFirstResponder()
-            }
-        }
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         
         //Style
         houseHeatingTextField.layer.cornerRadius = 8
@@ -59,16 +37,25 @@ class FourthSurveyViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        guard !houseHeatingTextField.isEmpty(), !houseCoolingTextField.isEmpty(), !furnitureAppliancesTextField.isEmpty(), !officeSuppliesTextField.isEmpty(), !clothingTextField.isEmpty() else { return }
+        if houseHeatingTextField.text!.isEmpty || houseCoolingTextField.text!.isEmpty || furnitureAppliancesTextField.text!.isEmpty || officeSuppliesTextField.text!.isEmpty || clothingTextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            houseHeatingTextField.checkLegnth(self, to: 6)
+            houseCoolingTextField.checkLegnth(self, to: 6)
+            furnitureAppliancesTextField.checkLegnth(self, to: 7)
+            officeSuppliesTextField.checkLegnth(self, to: 7)
+            clothingTextField.checkLegnth(self, to: 7)
+            
+            info.input_footprint_housing_hdd = Int(houseHeatingTextField.text!)
+            info.input_footprint_housing_cdd = Int(houseCoolingTextField.text!)
+            info.input_footprint_shopping_goods_default_furnitureappliances = Int(furnitureAppliancesTextField.text!)
+            info.input_footprint_shopping_goods_default_other_office = Int(officeSuppliesTextField.text!)
+            info.input_footprint_shopping_goods_default_clothing = Int(clothingTextField.text!)
+            
+            self.performSegue(withIdentifier: "to5", sender: self)
+        }
 
-        
-        info.input_footprint_housing_hdd = Int(houseHeatingTextField.text!)
-        info.input_footprint_housing_cdd = Int(houseCoolingTextField.text!)
-        info.input_footprint_shopping_goods_default_furnitureappliances = Int(furnitureAppliancesTextField.text!)
-        info.input_footprint_shopping_goods_default_other_office = Int(officeSuppliesTextField.text!)
-        info.input_footprint_shopping_goods_default_clothing = Int(clothingTextField.text!)
-        
-        self.performSegue(withIdentifier: "to5", sender: self)
     }
     
     

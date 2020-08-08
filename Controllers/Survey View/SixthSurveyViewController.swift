@@ -11,11 +11,11 @@ import UIKit
 class SixthSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var milesVehicle1TextField: InputNumberTextField!
-    @IBOutlet weak var mpgVehicle1TextField: InputNumberTextField!
-    @IBOutlet weak var milesVehicle2TextField: InputNumberTextField!
-    @IBOutlet weak var mpgVehicle2TextField: InputNumberTextField!
-    @IBOutlet weak var milesVehicle3TextField: InputNumberTextField!
+    @IBOutlet weak var milesVehicle1TextField: UITextField!
+    @IBOutlet weak var mpgVehicle1TextField: UITextField!
+    @IBOutlet weak var milesVehicle2TextField: UITextField!
+    @IBOutlet weak var mpgVehicle2TextField: UITextField!
+    @IBOutlet weak var milesVehicle3TextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
     
@@ -23,31 +23,9 @@ class SixthSurveyViewController: UIViewController {
         super.viewDidLoad()
         
         //Dismiss keyboard
-        milesVehicle1TextField.doneButtonPressed = {
-            if self.milesVehicle1TextField.isFirstResponder {
-                self.milesVehicle1TextField.resignFirstResponder()
-            }
-        }
-        mpgVehicle1TextField.doneButtonPressed = {
-            if self.mpgVehicle1TextField.isFirstResponder {
-                self.mpgVehicle1TextField.resignFirstResponder()
-            }
-        }
-        milesVehicle2TextField.doneButtonPressed = {
-            if self.milesVehicle2TextField.isFirstResponder {
-                self.milesVehicle2TextField.resignFirstResponder()
-            }
-        }
-        mpgVehicle2TextField.doneButtonPressed = {
-            if self.mpgVehicle2TextField.isFirstResponder {
-                self.mpgVehicle2TextField.resignFirstResponder()
-            }
-        }
-        milesVehicle3TextField.doneButtonPressed = {
-            if self.milesVehicle3TextField.isFirstResponder {
-                self.milesVehicle3TextField.resignFirstResponder()
-            }
-        }
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         
         //Style
         milesVehicle1TextField.layer.cornerRadius = 8
@@ -59,16 +37,25 @@ class SixthSurveyViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        
-        guard !milesVehicle1TextField.isEmpty(), !mpgVehicle1TextField.isEmpty(), !milesVehicle2TextField.isEmpty(), !mpgVehicle2TextField.isEmpty(), !milesVehicle3TextField.isEmpty() else { return }
-        
-        info.input_footprint_transportation_miles1 = Int(milesVehicle1TextField.text!)
-        info.input_footprint_transportation_mpg1 = Int(mpgVehicle1TextField.text!)
-        info.input_footprint_transportation_miles2 = Int(milesVehicle2TextField.text!)
-        info.input_footprint_transportation_mpg2 = Int(mpgVehicle2TextField.text!)
-        info.input_footprint_transportation_miles3 = Int(milesVehicle3TextField.text!)
-        
-        self.performSegue(withIdentifier: "to7", sender: self)
+        if milesVehicle1TextField.text!.isEmpty || mpgVehicle1TextField.text!.isEmpty || milesVehicle2TextField.text!.isEmpty || mpgVehicle2TextField.text!.isEmpty || milesVehicle3TextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            milesVehicle1TextField.checkLegnth(self, to: 9)
+            mpgVehicle1TextField.checkLegnth(self, to: 4)
+            milesVehicle2TextField.checkLegnth(self, to: 9)
+            mpgVehicle2TextField.checkLegnth(self, to: 4)
+            milesVehicle3TextField.checkLegnth(self, to: 9)
+            
+            info.input_footprint_transportation_miles1 = Int(milesVehicle1TextField.text!)
+            info.input_footprint_transportation_mpg1 = Int(mpgVehicle1TextField.text!)
+            info.input_footprint_transportation_miles2 = Int(milesVehicle2TextField.text!)
+            info.input_footprint_transportation_mpg2 = Int(mpgVehicle2TextField.text!)
+            info.input_footprint_transportation_miles3 = Int(milesVehicle3TextField.text!)
+            
+            self.performSegue(withIdentifier: "to7", sender: self)
+        }
+
     }
     
 

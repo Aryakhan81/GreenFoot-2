@@ -28,30 +28,32 @@ class CreditsScreenViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             urlToContact = "http://coolclimate.berkeley.edu"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+
         case 1:
-            urlToContact = "https://firebase.google.com"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
-        case 2:
             urlToContact = "https://www.makeschool.com"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
-        case 3:
-            urlToContact = "https://github.com/SwiftyJSON/SwiftyJSON"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
-        case 4:
-            urlToContact = "https://github.com/tadija/AEXML"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
-        case 5:
-            urlToContact = "https://github.com/drmohundro/SWXMLHash"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
-        case 6:
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+
+        case 2:
             urlToContact = "help.greenfoot@gmail.com"
-            UIApplication.shared.openURL(URL(string: "mailto:\(urlToContact)")!)
-        case 7:
+            UIApplication.shared.open(URL(string: "mailto:\(urlToContact)")!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+        case 3:
             urlToContact = "https://www.freeprivacypolicy.com/privacy/view/deb4670728e0e6f278e50ae3899526bf"
-            UIApplication.shared.openURL(URL(string: urlToContact)!)
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+        case 4:
+            urlToContact = "https://greenfoothelp.weebly.com"
+            UIApplication.shared.open(URL(string: urlToContact)!, options: [:], completionHandler: { (success) in
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
         default:
-            print("Invalid cell!")
             return
         }
     }

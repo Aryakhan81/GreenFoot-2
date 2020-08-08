@@ -10,22 +10,24 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AEXML
-import SWXMLHash
 import Firebase
-
-let appInfo = AppAPIID()
 
 class LoadingScreenViewController: UIViewController {
     @IBOutlet weak var loading: UILabel!
     
     var userData: Data?
     var user: User?
+    let alert = UIAlertController(title: "No Connection", message: "It appears that you have lost internet connetion. Please check your internet connection and try again.", preferredStyle: .alert)
     
     var params: Parameters = [:]
+    var headers: HTTPHeaders = [:]
     
     var abbv: String? {
         didSet {
             info.internal_state_abbreviation = self.abbv!
+            
+            headers = ["app_id": appInfo.AppID,
+                       "app_key": appInfo.AppKey]
             
             params = ["input_location": info.input_location!,
                       "input_income": info.input_income!,
@@ -100,8 +102,9 @@ class LoadingScreenViewController: UIViewController {
             "input_footprint_housing_gco2_per_kwh": info.input_footprint_housing_gco2_per_kwh,
             "input_footprint_housing_hdd": info.input_footprint_housing_hdd!,
             "input_footprint_housing_cdd": info.input_footprint_housing_cdd!,
-            "app_id": appInfo.AppID,
-            "app_key": appInfo.AppKey]
+//            "app_id": appInfo.AppID,
+//            "app_key": appInfo.AppKey
+            ]
             
             self.calculateFootprint()
         }
@@ -114,18 +117,22 @@ class LoadingScreenViewController: UIViewController {
         userData = (UserDefaults.standard.value(forKey: "currentUser") as! Data)
         user = try! JSONDecoder().decode(User.self, from: userData!)
         
-        let apiToContact = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/\(info.input_location!)?key=\(appInfo.zipcodeAppKey)"
-
-        Alamofire.request(apiToContact).validate().responseJSON { (response) in
-            switch response.result {
-            case .success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    let state = ZipCode(json: json)
-                    self.abbv = state.stateAbbv
+        if let stateAbbv = info.internal_state_abbreviation {
+            self.abbv = stateAbbv
+        } else {
+            let apiToContact = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/\(info.input_location!)?key=\(appInfo.zipcodeAppKey)"
+            
+            Alamofire.request(apiToContact).validate().responseJSON { (response) in
+                switch response.result {
+                case .success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        let state = ZipCode(json: json)
+                        self.abbv = state.stateAbbv
+                    }
+                case .failure(let error):
+                    self.alertFailure(error)
                 }
-            case .failure(let error):
-                self.loading.text = error.localizedDescription
             }
         }
     }
@@ -135,7 +142,7 @@ class LoadingScreenViewController: UIViewController {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             } catch {
-                print(error.localizedDescription)
+                return [:]
             }
         }
         return nil
@@ -143,12 +150,10 @@ class LoadingScreenViewController: UIViewController {
     
     func calculateFootprint() {
         let apiToContact = "https://apis.berkeley.edu/coolclimate/footprint?"
-
-
         let apiURL = URL(string: apiToContact)!
-        Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).validate().response { (response) in
+        
+        Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).validate().response { (response) in
             guard let xml = response.data else { return }
-            print(SWXMLHash.parse(xml))
             var options = AEXMLOptions()
             options.parserSettings.shouldProcessNamespaces = false
             options.parserSettings.shouldReportNamespacePrefixes = false
@@ -159,32 +164,40 @@ class LoadingScreenViewController: UIViewController {
                 let value = xmlDoc.root["result_grand_total"].value!
                 let ref = Database.database().reference().child("users").child(self.user!.uid)
                 let footprintRef = ref.child("carbonFootprint")
+                
                 footprintRef.setValue(Double(value)!, withCompletionBlock: { (error, reference) in
-                    if let error = error{
-                        print(error.localizedDescription)
+                    if let error = error {
+                        self.alertFailure(error)
                     }
                 })
                 
                 let rawMissions = xmlDoc.root["result_takeaction_pounds"].value!
-                let missions = self.convertToDictionary(text: rawMissions)
+                let missions = self.convertToDictionary(text: rawMissions)!.filter { $0.value as! Double > 0 }
                 
                 let missionRef = ref.child("missions")
                 missionRef.setValue(missions, withCompletionBlock: { (error, mr) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        self.alertFailure(error)
                     }
                     
                     let reducedRef = ref.child("carbonReduced")
                     reducedRef.setValue(0, withCompletionBlock: { (error, rr) in
                         if let error = error {
-                            print(error.localizedDescription)
+                            self.alertFailure(error)
                         }
                         
                         let starsRef = ref.child("stars")
                         starsRef.setValue(0, withCompletionBlock: { (error, sr) in
                             if let error = error {
-                                print(error.localizedDescription)
+                                self.alertFailure(error)
                             }
+                            
+                            let starsUsernameRef = Database.database().reference().child("usernames").child(self.user!.username).child("stars")
+                            starsUsernameRef.setValue(0, withCompletionBlock: { (error, sur) in
+                                if let error = error {
+                                    self.alertFailure(error)
+                                }
+                            })
                             
                             let initialViewController = UIStoryboard.initialViewController(for: .main)
                             self.view.window?.rootViewController = initialViewController
@@ -194,10 +207,17 @@ class LoadingScreenViewController: UIViewController {
                 })
                
             } catch (let error){
-                print("Went to catch \(error.localizedDescription)")
+                self.alertFailure(error)
             }
 
         }
+    }
+    
+    func alertFailure(_ error: Error) {
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
+            self.loading.text! = error.localizedDescription
+        }))
+        self.present(alert, animated: true)
     }
 
 }

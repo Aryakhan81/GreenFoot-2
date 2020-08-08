@@ -11,42 +11,20 @@ import UIKit
 class FifthSurveyViewController: UIViewController {
     
     //@IBOutlets
-    @IBOutlet weak var entertainmentTextField: InputNumberTextField!
-    @IBOutlet weak var personalCareTextField: InputNumberTextField!
-    @IBOutlet weak var medicalBillTextField: InputNumberTextField!
-    @IBOutlet weak var autoRepairTextField: InputNumberTextField!
-    @IBOutlet weak var servicesTextField: InputNumberTextField!
+    @IBOutlet weak var entertainmentTextField: UITextField!
+    @IBOutlet weak var personalCareTextField: UITextField!
+    @IBOutlet weak var medicalBillTextField: UITextField!
+    @IBOutlet weak var autoRepairTextField: UITextField!
+    @IBOutlet weak var servicesTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Dismiss keyboard
-        entertainmentTextField.doneButtonPressed = {
-            if self.entertainmentTextField.isFirstResponder {
-                self.entertainmentTextField.resignFirstResponder()
-            }
-        }
-        personalCareTextField.doneButtonPressed = {
-            if self.personalCareTextField.isFirstResponder {
-                self.personalCareTextField.resignFirstResponder()
-            }
-        }
-        medicalBillTextField.doneButtonPressed = {
-            if self.medicalBillTextField.isFirstResponder {
-                self.medicalBillTextField.resignFirstResponder()
-            }
-        }
-        autoRepairTextField.doneButtonPressed = {
-            if self.autoRepairTextField.isFirstResponder {
-                self.autoRepairTextField.resignFirstResponder()
-            }
-        }
-        servicesTextField.doneButtonPressed = {
-            if self.servicesTextField.isFirstResponder {
-                self.servicesTextField.resignFirstResponder()
-            }
-        }
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         
         //Style
         entertainmentTextField.layer.cornerRadius = 8
@@ -58,16 +36,26 @@ class FifthSurveyViewController: UIViewController {
     }
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
-        guard !entertainmentTextField.isEmpty(), !entertainmentTextField.isEmpty(), !medicalBillTextField.isEmpty(), !autoRepairTextField.isEmpty(), !servicesTextField.isEmpty() else { return }
-        
-        info.input_footprint_shopping_goods_default_other_entertainment = Int(entertainmentTextField.text!)
-        info.input_footprint_shopping_goods_default_other_personalcare = Int(entertainmentTextField.text!)
-        info.input_footprint_shopping_goods_default_other_medical = Int(medicalBillTextField.text!)
-        info.input_footprint_shopping_goods_default_other_autoparts = Int(autoRepairTextField.text!)
-        info.input_footprint_shopping_services_total = Int(servicesTextField.text!)
-        info.input_footprint_shopping_goods_total = info.input_footprint_shopping_goods_default_furnitureappliances! + info.input_footprint_shopping_goods_default_clothing! + info.input_footprint_shopping_goods_default_other_entertainment! + info.input_footprint_shopping_goods_default_other_office! + info.input_footprint_shopping_goods_default_other_personalcare! + info.input_footprint_shopping_goods_default_other_autoparts! + info.input_footprint_shopping_goods_default_other_medical!
-        
-        self.performSegue(withIdentifier: "to6", sender: self)
+        if entertainmentTextField.text!.isEmpty || personalCareTextField.text!.isEmpty || medicalBillTextField.text!.isEmpty || autoRepairTextField.text!.isEmpty || servicesTextField.text!.isEmpty {
+            AlertPresenterService.alertEmptyField(self)
+            return
+        } else {
+            entertainmentTextField.checkLegnth(self, to: 7)
+            personalCareTextField.checkLegnth(self, to: 7)
+            medicalBillTextField.checkLegnth(self, to: 7)
+            autoRepairTextField.checkLegnth(self, to: 7)
+            servicesTextField.checkLegnth(self, to: 7)
+            
+            info.input_footprint_shopping_goods_default_other_entertainment = Int(entertainmentTextField.text!)
+            info.input_footprint_shopping_goods_default_other_personalcare = Int(personalCareTextField.text!)
+            info.input_footprint_shopping_goods_default_other_medical = Int(medicalBillTextField.text!)
+            info.input_footprint_shopping_goods_default_other_autoparts = Int(autoRepairTextField.text!)
+            info.input_footprint_shopping_services_total = Int(servicesTextField.text!)
+            info.input_footprint_shopping_goods_total = info.input_footprint_shopping_goods_default_furnitureappliances! + info.input_footprint_shopping_goods_default_clothing! + info.input_footprint_shopping_goods_default_other_entertainment! + info.input_footprint_shopping_goods_default_other_office! + info.input_footprint_shopping_goods_default_other_personalcare! + info.input_footprint_shopping_goods_default_other_autoparts! + info.input_footprint_shopping_goods_default_other_medical!
+            
+            self.performSegue(withIdentifier: "to6", sender: self)
+        }
+
     }
     
 

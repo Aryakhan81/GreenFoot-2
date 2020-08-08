@@ -24,10 +24,9 @@ struct UserService {
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         let userAttrs: [String: Any] = ["username": username]
         
-        let ref = Database.database().reference().child("users").child(firUser.uid)
-        ref.setValue(userAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
+        let userRef = Database.database().reference().child("users").child(firUser.uid)
+        userRef.setValue(userAttrs) { (error, ref) in
+            if let _ = error {
                 return completion(nil)
             }
             
@@ -36,5 +35,6 @@ struct UserService {
                 completion(user)
             })
         }
+
     }
 }

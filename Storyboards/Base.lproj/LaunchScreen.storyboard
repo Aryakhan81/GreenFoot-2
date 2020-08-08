@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,22 +18,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="a4W-6g-rew">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GreenFoot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axd-IB-lcb">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="122"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
                                         <color key="textColor" name="gfDarkCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving the world one step at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vT-Hf-QkY">
-                                        <rect key="frame" x="0.0" y="136" width="375" height="96"/>
+                                        <rect key="frame" x="0.0" y="162" width="343" height="122"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" name="gfCharcoal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenfoot_white" translatesAutoresizingMaskIntoConstraints="NO" id="H6y-Mg-Lqh">
-                                        <rect key="frame" x="0.0" y="272" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="324" width="343" height="343"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="H6y-Mg-Lqh" secondAttribute="height" multiplier="375:375" id="bkE-9h-WaP"/>
                                         </constraints>
@@ -51,8 +48,8 @@
                         </subviews>
                         <color key="backgroundColor" name="gfOffWhite"/>
                         <constraints>
-                            <constraint firstItem="a4W-6g-rew" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Npp-jc-XQM"/>
-                            <constraint firstAttribute="trailing" secondItem="a4W-6g-rew" secondAttribute="trailing" id="bmz-pr-T0c"/>
+                            <constraint firstItem="a4W-6g-rew" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="16" id="Npp-jc-XQM"/>
+                            <constraint firstAttribute="trailing" secondItem="a4W-6g-rew" secondAttribute="trailing" constant="16" id="bmz-pr-T0c"/>
                             <constraint firstItem="a4W-6g-rew" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hMm-Z4-56f"/>
                             <constraint firstAttribute="bottom" secondItem="a4W-6g-rew" secondAttribute="bottom" id="jme-at-Z6i"/>
                         </constraints>

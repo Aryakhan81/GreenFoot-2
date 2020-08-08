@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseUI
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, FUIAuthDelegate {
     //@IBOutlets for labels
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var carbonFootprintLabel: UILabel!
@@ -25,6 +26,7 @@ class ProfileViewController: UIViewController {
     //@IBOutlets for buttons
     @IBOutlet weak var retakeSurveyButton: UIButton!
     @IBOutlet weak var creditsButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -43,21 +45,22 @@ class ProfileViewController: UIViewController {
         //Style
         retakeSurveyButton.layer.cornerRadius = 8
         creditsButton.layer.cornerRadius = 8
+        logOutButton.layer.cornerRadius = 8
         
         if UIDevice.modelName == "iPhone 5" || UIDevice.modelName == "iPhone 5c" || UIDevice.modelName == "iPhone 5s" || UIDevice.modelName == "iPhone SE" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 16.5)
-            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 16.5)
-            self.starAmount.font = UIFont.systemFont(ofSize: 16.5)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
-            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
-            self.starDescription.font = UIFont.boldSystemFont(ofSize: 16.5)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 15.5)
+            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 15.5)
+            self.starAmount.font = UIFont.systemFont(ofSize: 15.5)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 15.5)
+            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 15.5)
+            self.starDescription.font = UIFont.boldSystemFont(ofSize: 15.5)
         } else if UIDevice.modelName == "iPhone 6" || UIDevice.modelName == "iPhone 6s" || UIDevice.modelName == "iPhone 7" || UIDevice.modelName == "iPhone 8" {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 21)
-            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 21)
-            self.starAmount.font = UIFont.systemFont(ofSize: 21)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 21)
-            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 21)
-            self.starDescription.font = UIFont.boldSystemFont(ofSize: 21)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 20)
+            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 20)
+            self.starAmount.font = UIFont.systemFont(ofSize: 20)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.starDescription.font = UIFont.boldSystemFont(ofSize: 20)
         } else if UIDevice.modelName == "iPhone 6 Plus" || UIDevice.modelName == "iPhone 6s Plus" || UIDevice.modelName == "iPhone 7 Plus" || UIDevice.modelName == "iPhone 8 Plus" {
             self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 22)
             self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 22)
@@ -66,12 +69,12 @@ class ProfileViewController: UIViewController {
             self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 22)
             self.starDescription.font = UIFont.boldSystemFont(ofSize: 22)
         } else {
-            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 22)
-            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 22)
-            self.starAmount.font = UIFont.systemFont(ofSize: 22)
-            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 22)
-            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 22)
-            self.starDescription.font = UIFont.boldSystemFont(ofSize: 22)
+            self.carbonFootprintLabel.font = UIFont.systemFont(ofSize: 20)
+            self.reducedCarbonLabel.font = UIFont.systemFont(ofSize: 20)
+            self.starAmount.font = UIFont.systemFont(ofSize: 20)
+            self.footprintDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.reducedDescription.font = UIFont.boldSystemFont(ofSize: 20)
+            self.starDescription.font = UIFont.boldSystemFont(ofSize: 20)
 
         }
         
@@ -106,6 +109,33 @@ class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Log Out?", message: "Are you sure that you want to log out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            do {
+                UserDefaults.standard.set(nil, forKey: "currentUser")
+                try Auth.auth().signOut()
+            } catch {
+                let errorAlert = UIAlertController(title: "Unable to Log Out", message: "Something went wrong and we were unable to log you out. Please check your internet connection and try again.", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(errorAlert, animated: true)
+            }
+            
+            if let parentVC = self.tabBarController?.presentingViewController {
+                parentVC.dismiss(animated: true)
+            } else {
+                let initialViewController = UIStoryboard.initialViewController(for: .login)
+                self.view.window?.rootViewController = initialViewController
+                self.view.window?.makeKeyAndVisible()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        
+        
+    }
+    
     
 
 }
