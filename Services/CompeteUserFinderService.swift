@@ -47,7 +47,7 @@ struct CompeteUserFinderService {
             let value = snapshot.value as! [String: Any]
             
             //Check if they want to share data
-            guard (value["shareData"] as! Bool) else { return }
+            guard (value["shareData"] as? Bool ?? false) else { return }
             
             //Check if there's something there for the stars
             let userStars: Int? = value["stars"] as? Int
