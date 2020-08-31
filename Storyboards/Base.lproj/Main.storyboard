@@ -24,25 +24,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="38.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRu-Su-6Dt">
-                                                <rect key="frame" x="0.0" y="0.0" width="212" height="38.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                                 <color key="textColor" name="tcCharcoal"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNI-t8-L9k">
-                                                <rect key="frame" x="242" y="0.0" width="85" height="38.5"/>
-                                                <color key="backgroundColor" name="gfSeaBlue"/>
-                                                <state key="normal" title="Log Out">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="logoutButtonPressed:" destination="yCZ-LG-Wwv" eventType="touchUpInside" id="pKR-Og-rhb"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="TNI-t8-L9k" firstAttribute="width" secondItem="pRu-Su-6Dt" secondAttribute="width" multiplier="0.4" id="Wa4-fe-mU5"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK7-5H-WFw">
                                         <rect key="frame" x="0.0" y="68.5" width="327" height="21.5"/>
@@ -121,11 +108,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJm-Sf-Sha">
                                         <rect key="frame" x="0.0" y="0.0" width="126" height="45"/>
                                         <color key="backgroundColor" name="gfSeaBlue"/>
-                                        <state key="normal" title="Retake Survey">
+                                        <state key="normal" title="Settings">
                                             <color key="titleColor" name="gfOffWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="retakeSurveyButtonTapped:" destination="yCZ-LG-Wwv" eventType="touchUpInside" id="BSC-Z2-rxb"/>
+                                            <segue destination="7ML-FL-5kd" kind="show" id="muG-VU-y41"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AZ-zD-6ov">
@@ -163,10 +150,9 @@
                         <outlet property="carbonFootprintLabel" destination="B2R-BV-qDX" id="XcH-NM-o7f"/>
                         <outlet property="creditsButton" destination="8AZ-zD-6ov" id="P69-Wb-LXv"/>
                         <outlet property="footprintDescription" destination="Yla-z5-dq3" id="F7a-cM-xhh"/>
-                        <outlet property="logOutButton" destination="TNI-t8-L9k" id="RV7-sh-TjW"/>
                         <outlet property="reducedCarbonLabel" destination="gx9-4f-nOz" id="18R-iJ-iSX"/>
                         <outlet property="reducedDescription" destination="yZk-o3-tWy" id="Gqx-Ly-f8a"/>
-                        <outlet property="retakeSurveyButton" destination="NJm-Sf-Sha" id="iX5-VU-CWS"/>
+                        <outlet property="settingsButton" destination="NJm-Sf-Sha" id="izY-i8-nqf"/>
                         <outlet property="starAmount" destination="P6x-o4-m4l" id="tK4-Ge-NaF"/>
                         <outlet property="starDescription" destination="Pxh-qp-D4T" id="mMU-yP-lt5"/>
                         <outlet property="usernameLabel" destination="pRu-Su-6Dt" id="SCh-aV-RMN"/>
@@ -175,6 +161,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYb-D8-cwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1029.375" y="566.25"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="RFc-3u-3nC">
+            <objects>
+                <tableViewController id="7ML-FL-5kd" customClass="SettingsViewController" customModule="GreenFoot" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kNr-mD-Q8c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="CdM-g6-Eel">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="kqY-mc-oGJ" rowHeight="60" style="IBUITableViewCellStyleDefault" id="qJ7-Ug-IFw">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qJ7-Ug-IFw" id="Gcg-ar-qTr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Retake Survey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kqY-mc-oGJ">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="PxP-ZA-m3q" rowHeight="60" style="IBUITableViewCellStyleDefault" id="7Xj-tY-CCW">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Xj-tY-CCW" id="ybv-a8-wCq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Change Compete Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PxP-ZA-m3q">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="pAu-5K-4LM" rowHeight="60" style="IBUITableViewCellStyleDefault" id="VFO-ua-xcm">
+                                        <rect key="frame" x="0.0" y="148" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VFO-ua-xcm" id="Pxq-8a-NGE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Log Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pAu-5K-4LM">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7ML-FL-5kd" id="yFc-gq-dwz"/>
+                            <outlet property="delegate" destination="7ML-FL-5kd" id="Kpj-be-4Bg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="J37-Y3-rdp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Os-fn-qxe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1937" y="206"/>
         </scene>
         <!--Credits Screen View Controller-->
         <scene sceneID="ra3-a6-Fhx">
@@ -242,7 +304,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Contact the GreenFoot Team!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4dY-Bs-mfB">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Contact the GreenFoot Team!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4dY-Bs-mfB">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -259,7 +321,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="View Privacy Policy..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yrr-b4-fyv">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="View Privacy Policy..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yrr-b4-fyv">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -276,7 +338,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="View GreenFoot Website..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kop-Yb-Ab0">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="View GreenFoot Website..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kop-Yb-Ab0">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -297,7 +359,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1A-2M-UqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="566"/>
+            <point key="canvasLocation" x="1937" y="961"/>
         </scene>
         <!--Missions-->
         <scene sceneID="X9y-RN-e8z">

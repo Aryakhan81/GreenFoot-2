@@ -48,7 +48,7 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
         ref.child("shareData").observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? Bool {
                 if !value {
-                    let alert = UIAlertController(title: "Compete Mode Disabled", message: "You will not be able to see others' usernames and star counts, and they will not be able to see yours. You can change this at any time.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Compete Mode Disabled", message: "You will not be able to see others' usernames and star counts, and they will not be able to see yours. You can change this at any time in Settings.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
                         self.tabBarController?.selectedIndex = 0
                     }))
@@ -78,7 +78,7 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                 }))
                 alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (action) in
-                    let alert = UIAlertController(title: "Compete Mode Disabled", message: "You will not be able to see others' usernames and star counts, and they will not be able to see yours. You can change this at any time.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Compete Mode Disabled", message: "You will not be able to see others' usernames and star counts, and they will not be able to see yours. You can change this at any time in Settings.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action) in
                         ref.child("shareData").setValue(false, withCompletionBlock: { (error, dr) in
                             if let error = error {
