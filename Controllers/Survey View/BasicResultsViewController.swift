@@ -23,7 +23,8 @@ class BasicResultsViewController: UIViewController {
     
     let user = try! JSONDecoder().decode(User.self, from: (UserDefaults.standard.value(forKey: "currentUser") as! Data))
     let alert = UIAlertController(title: "No Connection", message: "It appears that you have lost internet connetion. Please check your internet connection and try again.", preferredStyle: .alert)
-    let params: Parameters = ["input_location": basicInfo.input_location!, "input_income": basicInfo.input_income!, "input_location_mode": basicInfo.input_location_mode!, "input_size": basicInfo.input_size!, "app_id": appInfo.AppID, "app_key": appInfo.AppKey]
+    let params: Parameters = ["input_location": basicInfo.input_location!, "input_income": basicInfo.input_income!, "input_location_mode": basicInfo.input_location_mode!, "input_size": basicInfo.input_size!]
+    let headers: HTTPHeaders = ["app_id": appInfo.AppID, "app_key": appInfo.AppKey]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class BasicResultsViewController: UIViewController {
         
         let apiToContact = "https://apis.berkeley.edu/coolclimate/footprint-defaults?"
         let apiURL = URL(string: apiToContact)!
-        Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).validate().response { (response) in
+        Alamofire.request(apiURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).validate().response { (response) in
             guard let xml = response.data else { return }
             var options = AEXMLOptions()
             options.parserSettings.shouldProcessNamespaces = false

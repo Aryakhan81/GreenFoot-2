@@ -23,7 +23,12 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //User's info collectors
     var usernames = [String]()
-    var userData = [String: Int]() {
+    var userDataRaw = [String : Int]() {
+        didSet {
+            self.userData = DictionarySort.prioritySort(input: userDataRaw)
+        }
+    }
+    var userData = [(String, Int)]() {
         didSet {
             self.competeResultsTableView.reloadData()
         }
@@ -118,8 +123,8 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "competeTableViewCell", for: indexPath) as! CompeteTableViewCell
         
-        cell.usernameLabel.text = Array(userData.keys)[indexPath.row]
-        cell.starsLabel.text = String(Array(userData.values)[indexPath.row]) + " Stars"
+        cell.usernameLabel.text = userData[indexPath.row].0
+        cell.starsLabel.text = String(userData[indexPath.row].1) + " Stars"
         
         return cell
     }
@@ -135,13 +140,12 @@ class CompeteViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.competeSearchBar.resignFirstResponder()
         CompeteUserFinderService.findCompetitors(contains: text, completion: { (usernames) in
 
-            CompeteUserFinderService.getData(usernames) { (userData) in
-                self.userData = userData
+            CompeteUserFinderService.getData(usernames) { (userDataRaw) in
+                self.userDataRaw = userDataRaw
 
             }
             
         })
-        
         
     }
     

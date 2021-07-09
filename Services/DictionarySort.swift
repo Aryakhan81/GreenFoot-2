@@ -11,14 +11,14 @@ import Foundation
 struct DictionarySort {
     
     //Merge sort taking into account the numeric value of the value, ignoring the key
-    static func prioritySort(input data: [String : Double]?) -> [(String, Double)] {
+    static func prioritySort(input data: [String : Int]?) -> [(String, Int)] {
         
         //Null check
-        guard let data = data else { return [(String, Double)]() }
-        if data.isEmpty { return [(String, Double)]() }
+        guard let data = data else { return [(String, Int)]() }
+        if data.isEmpty { return [(String, Int)]() }
         
         //Convert to tuple array
-        var dataArray = [(String, Double)]()
+        var dataArray = [(String, Int)]()
         for pair in data {
             dataArray += [(pair.key, pair.value)]
         }
@@ -27,25 +27,24 @@ struct DictionarySort {
         return mergeSort(input: dataArray)
     }
     
-    private static func mergeSort(input data: [(String, Double)]) -> [(String, Double)] {
+    private static func mergeSort(input data: [(String, Int)]) -> [(String, Int)] {
         
         //Base case
         if data.count == 1 { return data }
         
         //Create recursive partitions
-        let partition : Int = Int(floor(Double(data.count/2)))
-        let a = Array(data[..<partition])
-        let b = Array(data[...partition])
+        let a = data.split().left
+        let b = data.split().right
         
         return merge(a: mergeSort(input: a), b: mergeSort(input: b))
         
     }
     
-    private static func merge(a: [(String, Double)], b: [(String, Double)]) -> [(String, Double)] {
-        var result = [(String, Double)]()
+    private static func merge(a: [(String, Int)], b: [(String, Int)]) -> [(String, Int)] {
+        var result = [(String, Int)]()
 
         if (a == nil || b == nil || (a.isEmpty && b.isEmpty)) {
-            return [(String, Double)]()
+            return [(String, Int)]()
         }
 
         //Iterate through the arrays
@@ -53,14 +52,14 @@ struct DictionarySort {
         var otherIndex = 0;
         while (true) {
             if (firstIndex >= a.count) {
-                for index in otherIndex...b.count {
+                for index in otherIndex...b.count - 1 {
                     result.append(b[index])
                 }
                 return result;
             }
 
             if (otherIndex >= b.count) {
-                for index in firstIndex...a.count {
+                for index in firstIndex...a.count - 1 {
                     result.append(a[index])
                 }
                 return result;
