@@ -172,7 +172,7 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
                     } else {
                         self.missions = [:]
                     }
-                    self.missionsList = Array(self.missions)
+                    self.missionsList = DictionarySort.prioritySortDoubles(input: self.missions)
                 }
             } else {
                 let alert = UIAlertController(title: "Incomplete Survey", message: "It appears that you closed the app before completing the survey.", preferredStyle: UIAlertControllerStyle.alert)
