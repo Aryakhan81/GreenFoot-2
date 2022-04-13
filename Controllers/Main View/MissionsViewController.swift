@@ -102,7 +102,8 @@ class MissionsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "missionsTableViewCell", for: indexPath) as! MissionTableViewCell
         let description = ((missionsList[indexPath.row].key).capitalized).replacingOccurrences(of: "_", with: " ")
-        let missionText = "\(description) to reduce footprint by \(missionsList[indexPath.row].value) tons/year"
+        let fullDescription = MissionsConverterService.convertMissionsString(description)
+        let missionText = "\(fullDescription) to reduce footprint by \(missionsList[indexPath.row].value) tons/year"
         cell.completeButton.tag = indexPath.row
         cell.completeButton.addTarget(self, action: #selector(tappedComplete(_:)), for: .touchUpInside)
         cell.missionText.text = missionText
